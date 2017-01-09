@@ -1,0 +1,58 @@
+<div class="img-effect">
+	<div class="header">
+		<!--	<div class="container">-->
+		<div class="intro-text">
+			<!--				<div class="intro-lead-in">Welcome To Our Studio!</div>-->
+			<div class="intro-heading">A d v a n c e d &nbsp;&nbsp; i m a g e  &nbsp;&nbsp; e d i t o r </div>
+
+		</div>
+		<!--		</div>-->
+	</div>
+
+	<div class="container">
+		<!-- Add your site or application content here -->
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-6" >
+				<div id="imgContainer" style="margin-top:23px;"></div>
+
+<!--				<img ng-model="mImg" vintage="vignette:{{vigette}}" id="myImg" class="img-responsive imagedropshadow">-->
+				
+				<label class="btn upload">
+					<input type="file" onchange="angular.element(this).scope().setImageFile(this)" /> Upload image
+				</label>
+				
+				<img class="img-responsive" vintage="vignette: 0.5" src="../img/Untitled.jpg" />
+
+			</div>
+
+			<div class="col-xs-12 col-sm-6">
+				<h3>Gradient Effect</h3>
+				<p class="text-muted" style="font-style: italic;">Remember to choose the transparent level if you want to apply gradient effect on your picture</p>
+				<div class="row">
+					<div class="col-xs-6">
+						Choose Top Gradient color
+					</div>
+					<div class="col-xs-2" style="padding-top: 5px;">
+						<button colorpicker="rgba" colorpicker-position="top" class="color-picker" ng-model="gradientTop" style="background-color:{{gradientTop}}" ng-change="gradientAdjust()" value="gradientTop"></button>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-6">
+						Choose Bottom Gradient color
+					</div>
+					<div class="col-xs-2" style="padding-top: 5px;">
+						<button colorpicker="rgba" colorpicker-position="top" class="color-picker" ng-model="gradientBottom" style="background-color:{{gradientBottom}}" ng-change="gradientAdjust()" value="gradientBottom"></button>
+					</div>
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<a class="btn upload btn-default" download="edited" ng-href="{{url}}" ng-click="saveImage()">Save image</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

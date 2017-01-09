@@ -1,0 +1,160 @@
+<!-- Header -->
+	<header class="projectHeader" style="height: 100px">
+		<div class="container">
+<!--
+			<div class="intro-text">
+				
+				<div class="intro-heading">Your journey begin with</div>
+
+				<a href="#portfolio" class="arrow btn-circle page-scroll">
+					<i class="fa fa-angle-double-down animated"></i>
+				</a>
+				
+			</div>
+-->
+		</div>
+	</header>
+
+<div>
+<!-- Portfolio Grid Section -->
+	<section id="portfolio" class="cardView" style="margin-top: -50px">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">My Mini Projects</h2>
+					<h3 class="section-subheading text-muted">Welcome to my mini project page </h3>
+				</div>
+			</div>
+			<div class="row">
+				
+<!--				DRUM KIT-->
+				<div class="col-md-4 col-sm-6 portfolio-item">
+					<div class="cardItem">
+					<a ui-sref="drumKit" class="portfolio-link" >
+						<div class="portfolio-hover">
+							<div class="portfolio-hover-content">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+						</div>
+						<img src="img/drumKit/thumbnail.jpg" class="img-responsive" alt="">
+					</a>
+					<div class="portfolio-caption">
+						<h4>Drum Kit</h4>
+						<p class="text-muted">Create a virtual Drum kit </p>
+					</div>
+						</div>
+				</div>
+				
+<!--				IMAGE EDITOR-->
+				<div class="col-md-4 col-sm-6 portfolio-item">
+					<div class="cardItem">
+					<a ui-sref="ImgEditor" class="portfolio-link">
+						<div class="portfolio-hover">
+							<div class="portfolio-hover-content">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+						</div>
+						<img src="img/imgEditor/thumbnail.jpg" class="img-responsive" alt="">
+					</a>
+					<div class="portfolio-caption">
+						<h4>Simple Image Editor</h4>
+						<p class="text-muted">Simple image editor using canvas</p>
+					</div>
+						</div>
+				</div>
+				
+<!--				GRADIENT EFFECT-->
+				<div class="col-md-4 col-sm-6 portfolio-item">
+					<div class="cardItem">
+					<a ui-sref="ImgGradient" class="portfolio-link" >
+						<div class="portfolio-hover">
+							<div class="portfolio-hover-content">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+						</div>
+						<img src="img/gradient.jpg" class="img-responsive" alt="">
+					</a>
+					<div class="portfolio-caption">
+						<h4>Gradient Effect</h4>
+						<p class="text-muted">Adding effect to the image</p>
+					</div>
+						</div>
+				</div>
+				
+				
+<!--				ADVANCE IMAGE EDITOR-->
+				<div class="col-md-4 col-sm-6 portfolio-item">
+					<div class="cardItem">
+					<a ui-sref="ImgEditorAdv" class="portfolio-link">
+						<div class="portfolio-hover">
+							<div class="portfolio-hover-content">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+						</div>
+						<img src="img/portfolio/tour4.jpg" class="img-responsive" alt="">
+					</a>
+					<div class="portfolio-caption">
+						<h4>Advanced Image Editor</h4>
+						<p class="text-muted">More complex feature</p>
+					</div>
+						</div>
+				</div>
+				
+<!--				CREATE BLURRY BACKGROUND IMAGE-->
+				<div class="col-md-4 col-sm-6 portfolio-item">
+					<div class="cardItem">
+					<a href="#portfolioModal5" class="portfolio-link">
+						<div class="portfolio-hover">
+							<div class="portfolio-hover-content">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+						</div>
+						<img src="img/portfolio/tour5.jpg" class="img-responsive" alt="">
+					</a>
+					<div class="portfolio-caption">
+						<h4>Tour C</h4>
+						<p class="text-muted">Tour C</p>
+					</div>
+						</div>
+				</div>
+				
+<!--				PHOTO BOOTH-->
+				<div class="col-md-4 col-sm-6 portfolio-item">
+					<div class="cardItem">
+					<a ui-sref="photoBooth" class="portfolio-link">
+						<div class="portfolio-hover">
+							<div class="portfolio-hover-content">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+						</div>
+						<img src="img/photoBooth.jpg" class="img-responsive" alt="">
+					</a>
+					<div class="portfolio-caption">
+						<h4>Photo Booth</h4>
+						<p class="text-muted">xxxxxxxxxxx</p>
+					</div>
+				</div>
+					</div>
+			</div>
+		</div>
+	</section>
+
+
+	<script>
+		var main = () => {
+			$('a.page-scroll').on('click', function(event) {
+        var $anchor = $(this);
+//			console.log(this)
+        $('html, body').stop().animate({
+            scrollTop: ($($anchor.attr('href')).offset().top - 50)
+        }, 1250, 'easeInOutExpo');
+        event.preventDefault();
+    });
+			
+
+		}
+
+		//$(document).ready(main);
+		$('#projects').ready(main);
+	</script>
+</div>
