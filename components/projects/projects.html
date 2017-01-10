@@ -136,12 +136,13 @@
 	<script>
 		var main = () => {
 			$('a.page-scroll').on('click', function(event) {
+				event.preventDefault();
         var $anchor = $(this);
 //			console.log(this)
         $('html, body').stop().animate({
             scrollTop: ($($anchor.attr('href')).offset().top - 50)
         }, 1250, 'easeInOutExpo');
-        event.preventDefault();
+        
     });
 			
 

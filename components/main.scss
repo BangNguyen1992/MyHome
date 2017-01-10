@@ -216,9 +216,6 @@ h6 {
 		.navbar-nav>.active>a {
 			border-radius: 3px;
 		}
-//		&:hover{
-//			background-color: rgba(66,66,66, 1);
-//		}
 	}
 }
 
@@ -867,3 +864,6 @@ body {
 	background: rgba(255, 255, 255, .1);
 }
 
+.pointer{
+	cursor: pointer;
+}
