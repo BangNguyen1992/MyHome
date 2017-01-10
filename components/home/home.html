@@ -1,73 +1,153 @@
 <!-- Header -->
+<!--
 <header class="homeHeader">
 	<div class="container">
 		<div class="intro-text">
-			<!--				<div class="intro-lead-in">Welcome To Our Studio!</div>-->
+			
 			<div class="intro-heading">Welcome to my site</div>
 			<a href="#aboutMe" class="arrow btn-circle page-scroll">
 				<i class="fa fa-angle-double-down animated"></i>
 			</a>
-			<!--				<a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>-->
+			
 		</div>
 	</div>
 </header>
-
-<!--				ABOUT ME-->
-<section id="aboutMe" class="cardView">
+-->
+<!--This header was made based on Mike Mangialardi personal portfolio page on codepen http://codepen.io/mikemang/pen/mRddzG-->
+<div class="intro-header">
 	<div class="container">
+
 		<div class="row">
-			<div class="col-lg-12 ">
-				<h2 class="section-heading text-center">About me</h2>
-				<br>
-				<div class="col-xs-10 col-md-4">
-					<img class="img-responsive" src="../img/profile.jpg" />
+			<div class="col-lg-12">
+				<div class="bottom-triangle">
+
 				</div>
-				<div class="col-xs-10 col-md-8">
-					<br>
-					<p>Hello, my name is Bang Nguyen, a student at Helsinki Metropolia UAS.</p>
-					<p>I started my study as a business student and I come to learn IT about 3 years ago. At first I learn IT out of curiosity, but the more I know about it, the more I am interested in it. </p>
-					<p>There are a lot of thing I want to try out, in the beginning, I just want to make my own website, and make it become more lively, more vivid. After that, I taken an interested in image and video editing, then 2D & 3D animation, WebGL, and even automation, etc…
-					</p>
-					<p>I am a fast learner, easily absorb to what I am doing. My goal is become a product manager or project manager who can deal with both customers and technical member.</p>
+				<div class="intro-message">
+					<h1 class="animated bounceInDown">Bang Nguyen</h1>
+					<h3 class="animated lightSpeedIn">junior front-end developer</h3>
+
+					<a target='_blank' href="https://github.com/BangNguyen1992">
+						<i id="scale" class="icon-one fa fa-github fa-3x" aria-hidden="true"></i>
+					</a>
+
+					<a target='_blank' href="https://linkedin.com/in/bangnguyen1992">
+						<i id="scale" class="icon-two fa fa-linkedin fa-3x" aria-hidden="true"></i>
+					</a>
+
+					<a target='_blank' href="mailto:nguyenbahaibang@gmail.com">
+						<i id="scale" class="icon-three fa fa-envelope fa-3x" aria-hidden="true"></i>
+					</a>
+
 				</div>
+
+				<div class="infinite pulse animated">
+					<a href="#aboutMe" class="arrow btn-circle  page-scroll">
+						<i class="fa fa-angle-double-down infinite pulse animated"></i>
+					</a>
+				</div>
+
 			</div>
 		</div>
 	</div>
-	<br>
-	<br>
-	<div class="text-center myMotto">
-	<a href="#mySkill" class="arrow btn-circle page-scroll">
-		<i class="fa fa-angle-double-down animated"></i>
-	</a>
 </div>
-</section>
 
-<section class="cardView" style="padding-top:0; margin-top: -80px;">
-	<div id="mySkill" class="container">
-	<div class="row">
-		<div class="col-xs-12 text-center">
-			<h2  class="section-heading">My Skills</h2>
+<!--				ABOUT ME-->
+<div class="content-section-a">
+	<section id="aboutMe" class="cardView">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 ">
+					<h2 class="section-heading text-center">About me</h2>
+					<br>
+					<div class="col-xs-12 col-md-4">
+						<img class="img-responsive" src="../img/profile.jpg" />
+					</div>
+					<div class="col-xs-12 col-md-8">
+						<br>
+						<p>Hello, my name is Bang Nguyen, a student at Helsinki Metropolia UAS.</p>
+						<p>I started my study as a business student and I come to learn IT about 3 years ago. At first I learn IT out of curiosity, but the more I know about it, the more I am interested in it. </p>
+						<p>There are a lot of thing I want to try out, in the beginning, I just want to make my own website, and make it become more lively, more vivid. After that, I taken an interested in image and video editing, then 2D & 3D animation, WebGL, and even automation, etc…
+						</p>
+						<p>I am a fast learner, easily absorb to what I am doing. My goal is become a product manager or project manager who can deal with both customers and technical member.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<div class="text-center ">
+			<div class="infinite pulse animated">
+				<a href="#mySkill" class="arrow btn-circle  page-scroll">
+					<i class="fa fa-angle-double-down infinite pulse animated"></i>
+				</a>
+			</div>
+		</div>
+	</section>
+</div>
+
+<div class="content-section-b">
+	<section class="cardView" >
+		<div id="mySkill" class="container" style="margin-bottom:6rem;">
+
+			<!--		FRONT-END-->
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<h2 class="section-heading">Front-end</h2>
+				</div>
+			</div>
+			<div class="flex-container" style="margin-bottom: 50px">
+				<div class=" flex-item">
+					<img src="../img/es6.png" class="cardItem" style="max-width: 180px;">
+					<h4>JavaScript</h4>
+				</div>
+				<div class=" flex-item">
+					<img src="https://cdn.auth0.com/styleguide/latest/lib/circle-logo/img/angular.svg" class=" cardItem">
+					<h4>AngularJS</h4>
+				</div>
+					
+				<div class="flex-item">
+					<img src="../img/react.png" class="cardItem" style="max-width: 180px; ">
+					<h4>React</h4>
+				</div>
+			</div>
+			
+			<!--BACK-END-->
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<h2 class="section-heading">Back-end</h2>
+				</div>
+			</div>
+			<div class="flex-container">
+				<div class="flex-item">
+					<img src="../img/nodejs.png" class="cardItem">
+					<h4>NodeJS</h4>
+				</div>
+				<div class="flex-item">
+					<img src="../img/java.jpg" class="cardItem" style="background-color: rgba(0, 0, 0, 0.7);">
+					<h4>Java</h4>
+				</div>
+			</div>
+
+
 		</div>
 		
-		
-		</div>
-	</div>
-	<br>
-	<br>
-	<div class="text-center myMotto">
-	<a href="#motto" class="arrow btn-circle page-scroll">
-		<i class="fa fa-angle-double-down animated"></i>
-	</a>
-</div>
-</section>
+		<div class="text-center">
+			<div class="infinite pulse animated">
+				<a href="#motto" class="arrow btn-circle  page-scroll">
+					<i class="fa fa-angle-double-down infinite pulse animated"></i>
+				</a>
+			</div>
 
+		</div>
+	</section>
+</div>
 <!--FLEX BOX-->
 
 <section class="cardView" style="padding-top:0; margin-top: -80px;">
 	<div id="motto" class="container">
-		<div  class="row">
+		<div class="row">
 			<div class="col-xs-12 text-center">
-				<h2  class="section-heading">My Motto</h2>
+				<h2 class="section-heading">My Motto</h2>
 			</div>
 
 		</div>
@@ -122,22 +202,22 @@
 
 			function checkSlide(e) {
 				sliderImages.forEach(sliderImage => {
-					// half way through the image
-//					        const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.clientHeight ;
 					const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.clientHeight;
-					
+
+					//					console.log(slideInAt/4, sliderImage.offsetHeight);
 					// bottom of the image
 					const imageBottom = sliderImage.offsetHeight + sliderImage.clientHeight;
-					const isHalfShown = slideInAt/2.2 > sliderImage.offsetHeight;
-					const isNotScrolledPast = window.scrollY/2 < imageBottom;
-//					console.log(window.scrollY/2, imageBottom)
+					const isHalfShown = slideInAt / 4 > sliderImage.offsetHeight;
+
+					const isNotScrolledPast = window.scrollY / 4 < imageBottom;
+					//					console.log(window.scrollY / 2, imageBottom)
+
+
 					if (isHalfShown && isNotScrolledPast) {
 						sliderImage.classList.add('active');
 					} else {
 						sliderImage.classList.remove('active');
 					}
-					//				console.log(slideInAt, " ", sliderImage.offsetTop)
-					//				console.log(isNotScrolledPast)
 				});
 			}
 

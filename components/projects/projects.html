@@ -1,19 +1,12 @@
 <!-- Header -->
-	<header class="projectHeader" style="height: 100px">
-		<div class="container">
-<!--
-			<div class="intro-text">
-				
-				<div class="intro-heading">Your journey begin with</div>
 
-				<a href="#portfolio" class="arrow btn-circle page-scroll">
-					<i class="fa fa-angle-double-down animated"></i>
-				</a>
-				
-			</div>
--->
-		</div>
-	</header>
+<!--This header was made based on Mario Duarte from codepen-->
+
+<div class="hero">
+	<div class="background">
+		<canvas class="hero-canvas" width="1420"></canvas>
+	</div>
+</div>
 
 <div>
 <!-- Portfolio Grid Section -->
@@ -91,7 +84,7 @@
 								<i class="fa fa-plus fa-3x"></i>
 							</div>
 						</div>
-						<img src="img/portfolio/tour4.jpg" class="img-responsive" alt="">
+						<img src="img/live2d.jpg" class="img-responsive" alt="">
 					</a>
 					<div class="portfolio-caption">
 						<h4>Advanced Image Editor</h4>
@@ -100,20 +93,20 @@
 						</div>
 				</div>
 				
-<!--				CREATE BLURRY BACKGROUND IMAGE-->
+<!--				WEBGL LIVE2D-->
 				<div class="col-md-4 col-sm-6 portfolio-item">
 					<div class="cardItem">
-					<a href="#portfolioModal5" class="portfolio-link">
+					<a ui-sref="live2d" class="portfolio-link">
 						<div class="portfolio-hover">
 							<div class="portfolio-hover-content">
 								<i class="fa fa-plus fa-3x"></i>
 							</div>
 						</div>
-						<img src="img/portfolio/tour5.jpg" class="img-responsive" alt="">
+						<img src="img/live2d.jpg" class="img-responsive" alt="">
 					</a>
 					<div class="portfolio-caption">
-						<h4>Tour C</h4>
-						<p class="text-muted">Tour C</p>
+						<h4>WebGL Live2D</h4>
+						<p class="text-muted">Interecting with Asuna model using WebGL and Live2D</p>
 					</div>
 						</div>
 				</div>
@@ -131,7 +124,7 @@
 					</a>
 					<div class="portfolio-caption">
 						<h4>Photo Booth</h4>
-						<p class="text-muted">xxxxxxxxxxx</p>
+						<p class="text-muted">Modify video color webcam and take picture</p>
 					</div>
 				</div>
 					</div>
@@ -157,4 +150,5 @@
 		//$(document).ready(main);
 		$('#projects').ready(main);
 	</script>
+	
 </div>

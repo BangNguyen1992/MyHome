@@ -11,25 +11,6 @@ var babel  = require('gulp-babel');
 var pkg = require('./package.json');
 var historyApiFallback = require('connect-history-api-fallback');
 
-// Set the banner content
-//var banner = ['/*!\n',
-//    ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
-//    ' * Copyright 2013-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-//    ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n',
-//    ' */\n',
-//    ''
-//].join('');
-
-// Compile LESS files from /less into /css
-gulp.task('less', function () {
-	return gulp.src('less/agency.less')
-		.pipe(less())
-		//        .pipe(header(banner, { pkg: pkg }))
-		.pipe(gulp.dest('css'))
-		.pipe(browserSync.reload({
-			stream: true
-		}))
-});
 
 // Minify compiled CSS
 gulp.task('minify-css', ['sass'], function () {
@@ -57,8 +38,6 @@ gulp.task('minify-js', function () {
 		.pipe(uglify().on('error', function(e){
          console.log(e);
     }))
-//		.pipe(uglify())
-		//        .pipe(header(banner, { pkg: pkg }))
 		.pipe(rename({suffix: '.min' }))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('dist'))
@@ -111,7 +90,6 @@ gulp.task('dev', ['browserSync', 'sass', 'minify-js'], function () {
 });
 
 // Compiles SCSS files from /scss into /css
-// NOTE: This theme uses LESS by default. To swtich to SCSS you will need to update this gulpfile by changing the 'less' tasks to run 'sass'!
 gulp.task('sass', function () {
 	return gulp.src(['components/**/*.scss', 'components/*.scss', 'components/**/*.css'])
 		.pipe(sourcemaps.init())

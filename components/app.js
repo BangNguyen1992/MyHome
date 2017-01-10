@@ -16,13 +16,21 @@
 		.run(run);
 
 	config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$compileProvider'];
-	run.$inject = ['$rootScope'];
+	run.$inject = ['$rootScope', '$window'];
 
 	//Auto scroll page to top when change state
-	function run($rootScope) {
+	function run($rootScope, $window) {
 		$rootScope.$on('$stateChangeSuccess', function () {
 			document.body.scrollTop = document.documentElement.scrollTop = 0;
 		});
+		
+		$rootScope.$on('$stateChangeStart',
+    function(event, toState, toParams, fromState, fromParams) {
+      if (toState.external) {
+        event.preventDefault();
+        $window.open(toState.url, '_self');
+      }
+    });
 	}
 
 	function config($stateProvider, $urlRouterProvider, $locationProvider, $compileProvider) {
@@ -91,25 +99,10 @@
 					//							}
 				}
 			})
-
-		//			.state('exp', {
-		//				url: '/exp',
-		//				views: {
-		//					'': {
-		//						templateUrl: 'components/exp/pattern.html',
-		//						controller: 'PatternCtrl',
-		//						controllerAs: 'vm'
-		//					},
-		//					'create@exp': {
-		//						templateUrl: 'components/exp/createPattern.html',
-		//						controller: 'CreatePatternCtrl',
-		//						controllerAs: 'vm'
-		//					}
-		//				}
-		//			})
-
-		//				$locationProvider.html5Mode(true);
-
+		.state('live2d', {
+       url: 'https://asuna-test.herokuapp.com/',
+       external: true
+  })
 	}
 
 })();

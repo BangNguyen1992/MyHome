@@ -4,14 +4,22 @@
 @import "ImgEditor/imgEditorStyle.scss";
 @import "home/homeStyle.scss";
 @import "photoBooth/photoBoothStyle.scss";
+@import "projects/projectsStyle.scss";
+
 // Global Components
 body, footer {
 	overflow-x: hidden;
 //	background-color: rgb(250, 250, 250);
 	background-color: rgba(240,240,240,1);
-	@include body-font;
+	
+//	@include body-font;
 }
 .body{
+//	background-color: rgba(240,240,240,1);
+	background: linear-gradient($primary), url("../img/body-bg.png") no-repeat center center;
+}
+
+.bg-white{
 	background-color: rgba(240,240,240,1);
 }
 
@@ -151,14 +159,6 @@ h6 {
 	}
 }
 
-//	:hover,
-//	.navbar-nav>.active>a:focus {
-//		color: white;
-//		//		background-color: darken($theme-primary, 10%);
-//		background-color: transparent;
-//		border: none;
-//	}
-//}
 @media(min-width:768px) {
 	.active {
 		border-radius: 0;
@@ -203,19 +203,22 @@ h6 {
 	.navbar-custom {
 		background-color: transparent;
 		padding: 25px 0;
-		-webkit-transition: padding 0.5s;
-		-moz-transition: padding 0.5s;
-		transition: padding 0.5s;
+//		-webkit-transition: padding 0.5s;
+//		-moz-transition: padding 0.5s;
+		transition: all 0.5s;
 		border: none;
 		.navbar-brand {
 			font-size: 2em;
-			-webkit-transition: all 1s;
-			-moz-transition: all 1s;
-			transition: all 1s;
+			-webkit-transition: all 0.5s;
+			-moz-transition: all 0.5s;
+			transition: all 0.5s;
 		}
 		.navbar-nav>.active>a {
 			border-radius: 3px;
 		}
+//		&:hover{
+//			background-color: rgba(66,66,66, 1);
+//		}
 	}
 }
 
@@ -223,7 +226,7 @@ h6 {
 @media(min-width:768px) {
 	.navbar-custom.affix {
 //		background-color: $gray-darker;
-		background-color: rgba(66,66,66 ,0.7);
+		background-color: rgba(66,66,66,1);
 		padding: 10px 0;
 		.navbar-brand {
 			font-size: 1.5em;
@@ -327,6 +330,7 @@ section {
 @media(min-width:768px) {
 	section {
 		padding: 6rem 0;
+//		padding-bottom: 0px;
 	}
 }
 
@@ -847,35 +851,6 @@ body {
 	border: 1px solid #0c6bec;
 }
 
-.myMotto {
-	.btn a {
-		color: lightgrey;
-	}
-	.arrow.focus,
-	.arrow:focus,
-	.arrow:hover {
-		outline: 0;
-		color: gray;
-		background: rgba(255, 255, 255, .1);
-	}
-	.btn-circle{
-		color: lightgrey;
-		border: 2px solid lightgrey;
-	}
-//	.btn,
-//	.btn:focus {
-//		background-color: #0c6bec;
-//		border: 1px solid #0c6bec;
-//		border-radius: 0;
-//		color: gray;
-//	}
-//	.btn:hover {
-//		background-color: gray;
-//		color: #0c6bec;
-//		border: 1px solid #0c6bec;
-//	}
-}
-
 .btn a {
 	color: white;
 }
@@ -892,44 +867,3 @@ body {
 	background: rgba(255, 255, 255, .1);
 }
 
-.btn-circle:hover i.animated {
-	-webkit-animation-name: pulse;
-	-moz-animation-name: pulse;
-	-webkit-animation-duration: 1.5s;
-	-moz-animation-duration: 1.5s;
-	-webkit-animation-iteration-count: infinite;
-	-moz-animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;
-	-moz-animation-timing-function: linear;
-}
-
-.btn-circle i.animated {
-	/* -webkit-transition-property: -webkit-transform; */
-	/* -webkit-transition-duration: 1s; */
-	-moz-transition-property: -moz-transform;
-	-moz-transition-duration: 1s;
-}
-
-@-webkit-keyframes pulse {
-	0%,
-	100% {
-		/* -webkit-transform:scale(1); */
-		/* transform:scale(1); */
-	}
-	50% {
-		-webkit-transform: scale(1.2);
-		transform: scale(1.2);
-	}
-}
-
-@-moz-keyframes pulse {
-	0%,
-	100% {
-		-moz-transform: scale(1);
-		transform: scale(1)
-	}
-	50% {
-		-moz-transform: scale(1.2);
-		transform: scale(1.2)
-	}
-}
