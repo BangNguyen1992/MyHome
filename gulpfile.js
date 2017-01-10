@@ -8,7 +8,6 @@ var cleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
 var babel  = require('gulp-babel');
-var pkg = require('./package.json');
 var historyApiFallback = require('connect-history-api-fallback');
 
 
