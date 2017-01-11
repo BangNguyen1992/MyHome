@@ -26,7 +26,6 @@
 					</a>
 
 				</div>
-
 			</div>
 		</div>
 	</div>
@@ -40,7 +39,7 @@
 <!--				ABOUT ME-->
 <div class="content-section-a">
 	<section id="aboutMe" class="cardView">
-		<div class="container">
+		<div class="container hover">
 			<div class="row">
 				<div class="col-lg-12 ">
 					<h2 class="section-heading text-center">About me</h2>
@@ -193,9 +192,9 @@
 					//					console.log(slideInAt/4, sliderImage.offsetHeight);
 					// bottom of the image
 					const imageBottom = sliderImage.offsetHeight + sliderImage.clientHeight;
-					const isHalfShown = slideInAt / 4 > sliderImage.offsetHeight;
+					const isHalfShown = slideInAt / 4.2 > sliderImage.offsetHeight;
 
-					const isNotScrolledPast = window.scrollY / 4 < imageBottom;
+					const isNotScrolledPast = window.scrollY / 4.2 < imageBottom;
 					//					console.log(window.scrollY / 2, imageBottom)
 
 
@@ -219,12 +218,24 @@
 			}
 
 			panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+			
+			
+			$('a.page-scroll').on('click', function (event) {
+			var $anchor = $(this);
+//					console.log(this)
+			$('html, body').stop().animate({
+				scrollTop: ($($anchor.attr('data-href')).offset().top - 50)
+			}, 650, 'easeInOutExpo');
+			event.preventDefault();
+		});
+			
 		</script>
 	</div>
 </section>
 
 
 
+<!--
 <script>
 	(function ($) {
 		"use strict"; // Start of use strict
@@ -242,3 +253,4 @@
 
 	})(jQuery);
 </script>
+-->
