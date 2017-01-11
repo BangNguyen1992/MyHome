@@ -345,7 +345,7 @@ section {
 		.portfolio-link {
 			display: block;
 			position: relative;
-			max-width: 400px;
+//			max-width: 400px;
 			margin: 0 auto;
 			.portfolio-hover {
 				background: fade-out($theme-primary, .9);
@@ -380,10 +380,11 @@ section {
 		}
 		.portfolio-caption {
 			max-width: 400px;
-			margin: 0 auto;
-			background-color: white;
-			text-align: center;
-			padding: 25px;
+    	height: 100px;
+    	margin: 0 auto;
+    	background-color: white;
+    	text-align: center;
+    	padding: 25px 10px;
 			h4 {
 				text-transform: none;
 				margin: 0;
