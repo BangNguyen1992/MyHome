@@ -35,9 +35,9 @@
 				//					console.log(slideInAt/4, sliderImage.offsetHeight);
 				// bottom of the image
 				var imageBottom = sliderImage.offsetHeight + sliderImage.clientHeight;
-				var isHalfShown = slideInAt / 4.2 > sliderImage.offsetHeight;
+				var isHalfShown = slideInAt / 6 > sliderImage.offsetHeight;
 
-				var isNotScrolledPast = window.scrollY / 4.2 < imageBottom;
+				var isNotScrolledPast = window.scrollY / 6 < imageBottom;
 				//					console.log(window.scrollY / 2, imageBottom)
 
 				if (isHalfShown && isNotScrolledPast) {
