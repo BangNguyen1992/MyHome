@@ -12,7 +12,9 @@
     "type": "MIT",
     "url": " "
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp-concat": "^2.6.1"
+  },
   "repository": {
     "type": "git",
     "url": " "

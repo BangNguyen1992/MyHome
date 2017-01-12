@@ -191,10 +191,10 @@
 //	background-position: center;
 //}
 //
-//.projectHeader {
-//	background-image: url('../img/project-bg.jpg');
-//	background-position: center;
-//}
+.projectHeader {
+//	background-image: url('../img/1.jpg');
+	background-position: center;
+}
 
 .gradientHeader {
 	background-image: url('../img/gradient.jpg');
@@ -361,11 +361,11 @@ $triangle: polygon(50% 43%,0% 100%,100% 100%);
 	background: $neutral-white;
 	text-align: center;
 	.btn-circle {
-		border: 2px solid lightgray;
+		border: 2px solid #424242;
 	}
 	
 	.fa-angle-double-down {
-		color: lightgray;
+		color: #424242;
 	}
 	
 	.cardView {
@@ -383,11 +383,30 @@ $triangle: polygon(50% 43%,0% 100%,100% 100%);
 	color: $neutral-white;
 }
 
-//.center-btm {
-//		position: absolute;
-//		left: 48%;
-//		bottom: 20px
-//}
+.more{
+	color: white;
+	h3{
+		padding: 1rem;
+	}
+}
+
+.btn-project{
+	background-color: $accent;
+//	width: 200px;
+	height: 50px;
+	color: white;
+	border: 3px solid white;
+	a{
+		color: white;
+		font-weight: 700;
+    font-size: 2rem;
+    padding: 20px;
+		&:hover{
+			color: white;
+			text-decoration: none;
+		}
+	}
+}
 
 //mobile responsive
 @media all and (max-width: 720px) {
@@ -421,8 +440,4 @@ $triangle: polygon(50% 43%,0% 100%,100% 100%);
 		color: $neutral-white;
 		margin-right: 10px;
 	}
-//	.center-btm{
-//		left: 48%;
-//		bottom: 20px
-//	}
 }

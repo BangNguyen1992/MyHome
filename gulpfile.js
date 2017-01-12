@@ -9,6 +9,7 @@ var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
 var babel  = require('gulp-babel');
 var historyApiFallback = require('connect-history-api-fallback');
+var concat = require('gulp-concat');
 
 
 // Minify compiled CSS
@@ -45,6 +46,13 @@ gulp.task('minify-js', function () {
 		}))
 });
 
+gulp.task('scripts', function() {
+  return gulp.src('./dist/**/*.js')
+    .pipe(concat('main.js'))
+    .pipe(gulp.dest('./dist'));
+});
+
+
 // Copy vendor libraries from /node_modules into /vendor
 gulp.task('copy', function () {
 	gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*', '!**/*.map'])
@@ -65,7 +73,7 @@ gulp.task('copy', function () {
 })
 
 // Run everything
-gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy']);
+gulp.task('default', ['minify-css', 'minify-js','scripts', 'copy']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function () {
@@ -79,7 +87,7 @@ gulp.task('browserSync', function () {
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'sass', 'minify-js'], function () {
+gulp.task('dev', ['browserSync', 'sass', 'minify-js', 'scripts'], function () {
 	gulp.watch(['components/**/*.scss','components/*.scss'], ['sass']);
 	gulp.watch('components/**/*.js', ['minify-js']);
 	gulp.watch('components/*.js', ['minify-js']);
