@@ -335,6 +335,14 @@ section {
 	}
 }
 
+@media(min-width: 374px) {
+	section {
+		h2.section-heading {
+			font-size: 35px;
+		}
+	}
+}
+
 // Services Section
 .service-heading {
 	margin: 15px 0;

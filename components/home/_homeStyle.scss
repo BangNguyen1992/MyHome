@@ -73,10 +73,12 @@
 	&.open-active {
 		> * {
 			&:first-child {
-				transform: translateY(0)
+				transform: translateY(0);
+				display: flex;
 			}
 			&:last-child {
-				transform: translateY(0)
+				transform: translateY(0);
+				display: flex;
 			}
 		}
 	}
@@ -104,11 +106,29 @@
 		text-transform: uppercase;
 		font-family: $font-header;
 		text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
-		font-size: 2.4em;
+		font-size: 2em;
 		font-weight: 700;
 		cursor: pointer;
 		&:nth-child(2) {
 			font-size: 4em;
+		}
+	}
+}
+
+@media(max-width: 768px) {
+	.panels{
+		flex-direction: column;
+	}
+	.panel {
+		> * {
+			&:first-child {
+				transform: translateY(-100%);
+				display: none;
+			}
+			&:last-child {
+				transform: translateY(100%);
+				display: none;
+			}
 		}
 	}
 }
@@ -152,15 +172,15 @@
 	}
 }
 
-.homeHeader {
-	background-image: url('../img/home-bg.jpg');
-	background-position: center;
-}
-
-.projectHeader {
-	background-image: url('../img/project-bg.jpg');
-	background-position: center;
-}
+//.homeHeader {
+//	background-image: url('../img/home-bg.jpg');
+//	background-position: center;
+//}
+//
+//.projectHeader {
+//	background-image: url('../img/project-bg.jpg');
+//	background-position: center;
+//}
 
 .gradientHeader {
 	background-image: url('../img/gradient.jpg');
@@ -171,6 +191,11 @@
 	background-image: url('../img/photoBooth.jpg');
 	background-position: center;
 }
+
+.moleGameHeader {
+		background-image: url('../img/mole-game.jpg');
+		background-position: bottom;
+	}
 
 .cardView {
 	.container {
