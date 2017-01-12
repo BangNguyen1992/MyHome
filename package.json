@@ -12,14 +12,15 @@
   },
   "license": {
     "type": "MIT",
-    "url": " "
-  },
-  "devDependencies": {
-    "gulp-concat": "^2.6.1"
+		"url": "https://github.com/BangNguyen1992/MyHome/blob/master/LICENSE"
   },
   "repository": {
     "type": "git",
-    "url": " "
+    "url": "https://github.com/BangNguyen1992/MyHome"
+  },
+	"devDependencies": {
+    "gulp-concat": "^2.6.1",
+		"browser-sync": "^2.18.6"
   },
   "dependencies": {
     "angular": "^1.6.1",
@@ -37,7 +38,6 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-es2016": "^6.16.0",
     "bootstrap": "^3.3.7",
-    "browser-sync": "^2.13.0",
     "connect-history-api-fallback": "^1.3.0",
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
@@ -50,10 +50,9 @@
     "gulp-sourcemaps": "^2.4.0",
     "gulp-uglify": "^2.0.0",
     "http-server": "^0.9.0",
-    "jitsu": "^0.15.0",
-    "jquery": "3.1.1",
-    "vintagejs": "^1.1.5",
-    "snyk": "^1.24.4"
+    "jquery": "^3.1.1",
+    "snyk": "^1.24.4",
+    "vintagejs": "^1.1.5"
   },
   "snyk": true
 }

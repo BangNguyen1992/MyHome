@@ -12,7 +12,6 @@ var historyApiFallback = require('connect-history-api-fallback');
 var concat = require('gulp-concat');
 
 
-
 // Compiles SCSS files from /scss into /css
 gulp.task('sass', function () {
 	return gulp.src(['components/**/*.scss', 'components/*.scss', 'components/**/*.css'])
@@ -109,7 +108,7 @@ gulp.task('browserSync', function () {
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'sass', 'minify-js', 'scripts'], function () {
+gulp.task('dev', ['browserSync', 'sass', 'minify-js'], function () {
 	gulp.watch(['components/**/*.scss', 'components/*.scss'], ['sass']);
 	gulp.watch('components/**/*.js', ['minify-js']);
 	gulp.watch('components/*.js', ['minify-js']);
