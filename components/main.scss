@@ -335,10 +335,10 @@ section {
 	}
 }
 
-@media(min-width: 374px) {
+@media(max-width: 500px) {
 	section {
 		h2.section-heading {
-			font-size: 35px;
+			font-size: 3rem;
 		}
 	}
 }

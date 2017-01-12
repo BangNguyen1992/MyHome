@@ -48,11 +48,14 @@
 			});
 		}
 
-		if(width > 1024)
+		if (width > 1024)
 			window.addEventListener('scroll', debounce(checkSlide));
-		else
-			sliderImages.forEach(sliderImage => {sliderImage.classList.add('active')})
-		
+		else {
+			sliderImages.forEach(sliderImage => {
+				sliderImage.classList.add('active')
+			})
+		}
+
 		//Animation on click
 		var panels = document.querySelectorAll('.panel');
 
