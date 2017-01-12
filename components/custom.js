@@ -2,19 +2,19 @@
 	"use strict"; // Start of use strict
 
 	// jQuery for page scrolling feature - requires jQuery Easing plugin
-	//	$('a.page-scroll').on('click', function (event) {
-	//		var $anchor = $(this);
-	//		console.log(this)
-	//		$('html, body').stop().animate({
-	//			scrollTop: ($($anchor.attr('href')).offset().top - 50)
-	//		}, 650, 'easeInOutExpo');
-	//		event.preventDefault();
-	//	});
+		$('a.page-scroll').on('click', function (event) {
+			var $anchor = $(this);
+			console.log(this)
+			$('html, body').stop().animate({
+				scrollTop: ($($anchor.attr('data-href')).offset().top - 50)
+			}, 550, 'easeInOutExpo');
+			event.preventDefault();
+		});
 
 	$('.top').click(function () {
 		$("html, body").animate({
 			scrollTop: 0
-		}, 650);
+		}, 550);
 		return false;
 	});
 
