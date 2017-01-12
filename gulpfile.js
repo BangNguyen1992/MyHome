@@ -12,7 +12,6 @@ var historyApiFallback = require('connect-history-api-fallback');
 var concat = require('gulp-concat');
 
 
-
 // Compiles SCSS files from /scss into /css
 gulp.task('sass', function () {
 	return gulp.src(['components/**/*.scss', 'components/*.scss', 'components/**/*.css'])
