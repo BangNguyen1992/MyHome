@@ -49,7 +49,6 @@
 				//        abstract:true,
 				templateUrl: '../index.html',
 				controller: 'NavCtrl'
-					//				controllerAs: 'vm'
 			})
 			.state('home', {
 				url: '/home',
@@ -79,10 +78,10 @@
 				templateUrl: 'components/ImgGradient/imgGradient.html',
 				controller: 'GradientCtrl'
 			})
-			.state('ImgEditorAdv', {
-				url: '/img-editor-adv',
-				templateUrl: 'components/ImgEditorAdv/imgEditorAdv.html',
-				controller: 'ImgEditorAdvCtrl'
+			.state('moleGame', {
+				url: '/mole-game',
+				templateUrl: 'components/moleGame/moleGame.html',
+				controller: 'MoleGameCtrl'
 			})
 			.state('photoBooth', {
 				url: '/photo-booth',
