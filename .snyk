@@ -1,0 +1,53 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.7.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:hawk:20160119':
+    - jitsu > request > hawk:
+        patched: '2017-01-12T19:37:22.594Z'
+    - jitsu > nodejitsu-api > preacher-api > request > hawk:
+        patched: '2017-01-12T19:37:22.594Z'
+    - jitsu > nodejitsu-api > request > hawk:
+        patched: '2017-01-12T19:37:22.594Z'
+  'npm:minimatch:20160620':
+    - gulp > vinyl-fs > glob-stream > glob > minimatch:
+        patched: '2017-01-12T19:37:22.594Z'
+    - jitsu > fstream-npm > fstream-ignore > minimatch:
+        patched: '2017-01-12T19:37:22.594Z'
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > minimatch:
+        patched: '2017-01-12T19:37:22.594Z'
+    - gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
+        patched: '2017-01-12T19:37:22.594Z'
+    - jitsu > require-analyzer > read-installed > read-package-json > glob > minimatch:
+        patched: '2017-01-12T19:37:22.594Z'
+    - gulp > vinyl-fs > glob-stream > minimatch:
+        patched: '2017-01-12T19:37:22.594Z'
+  'npm:qs:20140806-1':
+    - jitsu > nodejitsu-api > request > qs:
+        patched: '2017-01-12T19:37:22.594Z'
+    - jitsu > nodejitsu-api > preacher-api > request > qs:
+        patched: '2017-01-12T19:37:22.594Z'
+    - jitsu > flatiron > broadway > winston > request > qs:
+        patched: '2017-01-12T19:37:22.594Z'
+  'npm:request:20160119':
+    - jitsu > request:
+        patched: '2017-01-12T19:37:22.594Z'
+    - jitsu > nodejitsu-api > request:
+        patched: '2017-01-12T19:37:22.594Z'
+    - jitsu > nodejitsu-api > preacher-api > request:
+        patched: '2017-01-12T19:37:22.594Z'
+    - jitsu > require-analyzer > winston > request:
+        patched: '2017-01-12T19:37:22.594Z'
+    - jitsu > flatiron > broadway > cliff > winston > request:
+        patched: '2017-01-12T19:37:22.594Z'
+    - jitsu > flatiron > prompt > winston > request:
+        patched: '2017-01-12T19:37:22.594Z'
+    - jitsu > flatiron > broadway > winston > request:
+        patched: '2017-01-12T19:37:22.594Z'
+  'npm:tar:20151103':
+    - jitsu > tar:
+        patched: '2017-01-12T19:37:22.594Z'
+  'npm:ws:20160104':
+    - jitsu > nodejitsu-api > preacher-api > ws:
+        patched: '2017-01-12T19:37:22.594Z'
