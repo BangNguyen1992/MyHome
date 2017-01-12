@@ -10,7 +10,6 @@
 	<meta name="author" content="Bang Nguyen">
 	<base href=".">
 	<title>Bang Nguyen Home page</title>
-<!--	<base href="/">-->
 
 	<!-- Bootstrap Core CSS -->
 	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,13 +19,13 @@
 	<!-- Custom Fonts -->
 	<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-<!--	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">-->
 	<!-- Theme CSS -->
 <!--	<link href="dist/main.min.css" rel="stylesheet">-->
 	<link href="dist/main.css" rel="stylesheet"/>
 	<link href="node_modules/angular-bootstrap-colorpicker/css/colorpicker.min.css" rel="stylesheet"/>
 	<link href="node_modules/angular-material/angular-material.css" rel="stylesheet"/>
 	<link href="node_modules/animate.css/animate.css" rel="stylesheet"/>
+	<link href="node_modules/angular-ui-router-anim-in-out/css/anim-in-out.css" rel="stylesheet"/>
 	
 
 </head>
@@ -52,7 +51,6 @@
 
 					<li><a class="top" ui-sref="home" ui-sref-active="active">Home</a></li>
 					<li><a class="top" ui-sref="projects" ui-sref-active="active">My Projects</a></li>
-<!--					<li><a class="top" ui-sref=" " ui-sref-active="active">About Me</a></li>-->
 					
 				</ul>
 			</div>
@@ -61,7 +59,7 @@
 
 	
 
-<div class="body" ui-view > </div>
+<div class="body anim-in-out anim-slide-below-fade" data-anim-sync="true" ui-view > </div>
 	
 
 	<footer>
@@ -105,6 +103,7 @@
 	<script src="node_modules/angular-aria/angular-aria.js"></script>
 	<script src="node_modules/angular-animate/angular-animate.js"></script>
 	<script src="node_modules/angular-material/angular-material.js"></script>
+	<script src="node_modules/angular-ui-router-anim-in-out/anim-in-out.js"></script>
 	
 	<!-- Bootstrap Core JavaScript -->
 	<script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>

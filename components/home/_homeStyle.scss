@@ -1,7 +1,19 @@
 .flex-container {
 	padding-top: 20px;
+	padding-bottom: 50px;
 	display: flex;
 	flex-flow: row wrap;
+	justify-content: center;
+	.border {
+		margin: 2rem;
+		
+	}
+}
+
+.flex-column{
+	display: flex;
+	flex-flow: column wrap;
+	text-align: center;
 }
 
 .flex-item {
@@ -10,8 +22,8 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	margin: 3rem;
 	background-color: white;
+	margin: 2rem;
 	.cardItem {
 		background-color: transparent;
 		border: 0;
@@ -22,6 +34,8 @@
 	&.border{
 		border: 1px solid rgba(0, 0, 0, 0.1);
 		border-radius: 2px;
+		max-width: 230px;
+    padding: 10px;
 		&:hover{
 			transform: translateY(-2px);
 			box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
@@ -288,6 +302,8 @@ $triangle: polygon(50% 43%,0% 100%,100% 100%);
 }
 
 .intro-header {
+	display: flex;
+	flex-direction: column;
 	padding-top: 0px;
 	padding-bottom: 20px;
 	text-align: center;
@@ -367,6 +383,12 @@ $triangle: polygon(50% 43%,0% 100%,100% 100%);
 	color: $neutral-white;
 }
 
+//.center-btm {
+//		position: absolute;
+//		left: 48%;
+//		bottom: 20px
+//}
+
 //mobile responsive
 @media all and (max-width: 720px) {
 	.intro-message > h1 {
@@ -399,4 +421,8 @@ $triangle: polygon(50% 43%,0% 100%,100% 100%);
 		color: $neutral-white;
 		margin-right: 10px;
 	}
+//	.center-btm{
+//		left: 48%;
+//		bottom: 20px
+//	}
 }

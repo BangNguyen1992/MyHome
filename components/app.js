@@ -10,7 +10,8 @@
 		'vintagejs',
 		'ngAria',
 		'ngAnimate',
-		'ngMaterial'
+		'ngMaterial',
+		'anim-in-out'
 	])
 		.config(config)
 		.run(run);
