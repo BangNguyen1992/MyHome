@@ -10,6 +10,7 @@ var uglify = require('gulp-uglify');
 var babel = require('gulp-babel');
 var historyApiFallback = require('connect-history-api-fallback');
 var concat = require('gulp-concat');
+var http = require('http-server');
 
 
 // Compiles SCSS files from /scss into /css
