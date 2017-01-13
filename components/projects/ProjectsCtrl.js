@@ -9,6 +9,8 @@
 
 	function ProjectsCtrl($scope) {
 
+	
+		
 
 //		var ww = $(window).width();
 //		var wh = $(window).height();

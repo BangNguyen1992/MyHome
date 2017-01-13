@@ -1,7 +1,7 @@
 <!-- Header -->
 
 <!--This header was made based on Mike Mangialardi personal portfolio page on codepen http://codepen.io/mikemang/pen/mRddzG-->
-<div class="intro-header">
+<div class="intro-header homeHeader">
 	<div class="container">
 
 		<div class="row">
@@ -10,17 +10,19 @@
 					<h1 class="animated bounceInDown">Bang Nguyen</h1>
 					<h3 class="animated lightSpeedIn">junior front-end developer</h3>
 
-					<a target='_blank' href="https://github.com/BangNguyen1992">
-						<i id="scale" class="icon-one fa fa-github fa-3x" aria-hidden="true"></i>
-					</a>
 
-					<a target='_blank' href="https://linkedin.com/in/bangnguyen1992">
-						<i id="scale" class="icon-two fa fa-linkedin fa-3x" aria-hidden="true"></i>
-					</a>
+						<a target='_blank' href="https://github.com/BangNguyen1992">
+							<i id="scale" class="icon-one fa fa-github fa-3x" aria-hidden="true"></i>
 
-					<a target='_blank' href="mailto:nguyenbahaibang@gmail.com">
-						<i id="scale" class="icon-three fa fa-envelope fa-3x" aria-hidden="true"></i>
-					</a>
+						</a>
+
+						<a class=" " target='_blank' href="https://linkedin.com/in/bangnguyen1992">
+							<i id="scale" class="icon-two fa fa-linkedin fa-3x" aria-hidden="true"></i>
+						</a>
+
+						<a class="" target='_blank' href="mailto:nguyenbahaibang@gmail.com">
+							<i id="scale" class="icon-three fa fa-envelope fa-3x" aria-hidden="true"></i>
+						</a>
 
 				</div>
 			</div>
@@ -220,7 +222,7 @@
 </div>
 
 <section class="text-center more" style="padding-top: 0px">
-	<h3>Interesting?</h3> 
+	<h3>Interesting?</h3>
 	<button class="btn-project infinite pulse animated">
 		<a class="" ui-sref="projects">Check out my other projects too</a></button>
 </section>
@@ -236,3 +238,18 @@
 		event.preventDefault();
 	});
 </script>-->
+
+<script>
+	$(".homeHeader").jParticle({
+		color: "#fff",
+		background: "transparent",
+		particlesNumber: 70,
+		createLinkDist: 150,
+		linksWidth: 1,
+		particle: {
+			speed: 80,
+		}
+
+	});
+	$("canvas:first").addClass('particle');
+</script>

@@ -18,9 +18,20 @@ body, footer {
   user-select: none;
 //	@include body-font;
 }
-.body{
-//	background-color: rgba(240,240,240,1);
+.body {
+	//	background-color: rgba(240,240,240,1);
 	background: linear-gradient($primary), url("../img/body-bg.png") no-repeat center center;
+	* {
+		z-index: 2;
+	}
+}
+
+.particle{
+	position: absolute;
+	top: 0;
+  left: 0;
+  z-index: 1;
+	height: 100vh;
 }
 
 .bg-white{
@@ -112,7 +123,8 @@ h6 {
 		&:focus,
 		&:active,
 		&.active {
-			color: darken($theme-primary, 10%);
+//			color: darken($theme-primary, 10%);
+			color: white;
 		}
 	}
 	.navbar-collapse {
@@ -282,7 +294,7 @@ header {
 			//            padding-top: 300px;
 			//            padding-bottom: 200px;
 			padding-top: 250px;
-			height: 100vh;
+//			height: 100vh;
 			.intro-lead-in {
 				//                @include serif-font;
 				font-family: $font-header;

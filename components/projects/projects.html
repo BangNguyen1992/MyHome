@@ -1,29 +1,23 @@
 <!-- Header -->
 
-<!--This header was made based on Mario Duarte from codepen-->
+<div class=" projectHeader"></div>
 
-<div class="hero">
-	<div class="background projectHeader">
-<!--		<canvas class="hero-canvas" width="1420"></canvas>-->
-	</div>
-</div>
-
-<div>
 <!-- Portfolio Grid Section -->
-	<section id="portfolio" class="cardView" style="margin-top: -50px">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<h2 class="section-heading">Projects</h2>
-					<h3 class="section-subheading text-muted">Welcome to my mini project page </h3>
-				</div>
+<div class="projectContent">
+<section id="portfolio" class="cardView" style="margin-top: -50px; ">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2 class="section-heading">Projects</h2>
+				<h3 class="section-subheading text-muted">Welcome to my mini project page </h3>
 			</div>
-			<div class="row">
-				
-<!--				DRUM KIT-->
-				<div class="col-md-4 col-sm-6 portfolio-item">
-					<div class="cardItem">
-					<a ui-sref="drumKit" class="portfolio-link" >
+		</div>
+		<div class="row">
+
+			<!--				DRUM KIT-->
+			<div class="col-md-4 col-sm-6 portfolio-item">
+				<div class="cardItem">
+					<a ui-sref="drumKit" class="portfolio-link">
 						<div class="portfolio-hover">
 							<div class="portfolio-hover-content">
 								<i class="fa fa-plus fa-3x"></i>
@@ -35,12 +29,12 @@
 						<h4>Drum Kit</h4>
 						<p class="text-muted">Create a virtual Drum kit </p>
 					</div>
-						</div>
 				</div>
-				
-<!--				IMAGE EDITOR-->
-				<div class="col-md-4 col-sm-6 portfolio-item">
-					<div class="cardItem">
+			</div>
+
+			<!--				IMAGE EDITOR-->
+			<div class="col-md-4 col-sm-6 portfolio-item">
+				<div class="cardItem">
 					<a ui-sref="ImgEditor" class="portfolio-link">
 						<div class="portfolio-hover">
 							<div class="portfolio-hover-content">
@@ -53,13 +47,13 @@
 						<h4>Simple Image Editor</h4>
 						<p class="text-muted">Simple image editor using canvas</p>
 					</div>
-						</div>
 				</div>
-				
-<!--				GRADIENT EFFECT-->
-				<div class="col-md-4 col-sm-6 portfolio-item">
-					<div class="cardItem">
-					<a ui-sref="ImgGradient" class="portfolio-link" >
+			</div>
+
+			<!--				GRADIENT EFFECT-->
+			<div class="col-md-4 col-sm-6 portfolio-item">
+				<div class="cardItem">
+					<a ui-sref="ImgGradient" class="portfolio-link">
 						<div class="portfolio-hover">
 							<div class="portfolio-hover-content">
 								<i class="fa fa-plus fa-3x"></i>
@@ -71,13 +65,13 @@
 						<h4>Gradient Effect</h4>
 						<p class="text-muted">Adding effect to the image</p>
 					</div>
-						</div>
 				</div>
-				
-				
-<!--				WHACK A MOLE-->
-				<div class="col-md-4 col-sm-6 portfolio-item">
-					<div class="cardItem">
+			</div>
+
+
+			<!--				WHACK A MOLE-->
+			<div class="col-md-4 col-sm-6 portfolio-item">
+				<div class="cardItem">
 					<a ui-sref="moleGame" class="portfolio-link">
 						<div class="portfolio-hover">
 							<div class="portfolio-hover-content">
@@ -90,12 +84,12 @@
 						<h4>WHACK-A-MOLE! Game</h4>
 						<p class="text-muted">Simple yet funny game which using mouse to hit the mole</p>
 					</div>
-						</div>
 				</div>
-				
-<!--				WEBGL LIVE2D-->
-				<div class="col-md-4 col-sm-6 portfolio-item">
-					<div class="cardItem">
+			</div>
+
+			<!--				WEBGL LIVE2D-->
+			<div class="col-md-4 col-sm-6 portfolio-item">
+				<div class="cardItem">
 					<a ui-sref="live2d" class="portfolio-link">
 						<div class="portfolio-hover">
 							<div class="portfolio-hover-content">
@@ -108,12 +102,12 @@
 						<h4>WebGL Live2D</h4>
 						<p class="text-muted">Interacting with Asuna model using WebGL and Live2D</p>
 					</div>
-						</div>
 				</div>
-				
-<!--				PHOTO BOOTH-->
-				<div class="col-md-4 col-sm-6 portfolio-item">
-					<div class="cardItem">
+			</div>
+
+			<!--				PHOTO BOOTH-->
+			<div class="col-md-4 col-sm-6 portfolio-item">
+				<div class="cardItem">
 					<a ui-sref="photoBooth" class="portfolio-link">
 						<div class="portfolio-hover">
 							<div class="portfolio-hover-content">
@@ -127,31 +121,19 @@
 						<p class="text-muted">Modify video color webcam and take picture</p>
 					</div>
 				</div>
-					</div>
 			</div>
 		</div>
-	</section>
-
-
-<!--
-	<script>
-		var main = () => {
-			$('a.page-scroll').on('click', function(event) {
-				event.preventDefault();
-        var $anchor = $(this);
-//			console.log(this)
-        $('html, body').stop().animate({
-            scrollTop: ($($anchor.attr('href')).offset().top - 50)
-        }, 1250, 'easeInOutExpo');
-        
-    });
-			
-
-		}
-
-		//$(document).ready(main);
-		$('#projects').ready(main);
-	</script>
--->
-	
+	</div>
+</section>
 </div>
+
+
+<script>
+	$(".projectHeader").jParticle({
+		color: "#fff",
+		background: "transparent",
+		height: 1200,
+		particlesNumber: 200,
+
+	});
+</script>

@@ -71,6 +71,14 @@
 
 		panels.forEach(panel => panel.addEventListener('click', toggleOpen));
 
+		$('a.page-scroll').on('click', function (event) {
+		var $anchor = $(this);
+		//					console.log(this)
+		$('html, body').stop().animate({
+			scrollTop: ($($anchor.attr('data-href')).offset().top - 50)
+		}, 550, 'easeInOutExpo');
+		event.preventDefault();
+	});
 
 	}
 })();

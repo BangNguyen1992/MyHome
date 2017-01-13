@@ -2,14 +2,14 @@
 	"use strict"; // Start of use strict
 
 	// jQuery for page scrolling feature - requires jQuery Easing plugin
-		$('a.page-scroll').on('click', function (event) {
-			var $anchor = $(this);
-			console.log(this)
-			$('html, body').stop().animate({
-				scrollTop: ($($anchor.attr('data-href')).offset().top - 50)
-			}, 550, 'easeInOutExpo');
-			event.preventDefault();
-		});
+//		$('a.page-scroll').on('click', function (event) {
+//			var $anchor = $(this);
+//			console.log(this)
+//			$('html, body').stop().animate({
+//				scrollTop: ($($anchor.attr('data-href')).offset().top - 50)
+//			}, 550, 'easeInOutExpo');
+//			event.preventDefault();
+//		});
 
 	$('.top').click(function () {
 		$("html, body").animate({
@@ -37,6 +37,7 @@
 	})
 
 	$(this).scrollTop(0);
+
 
 	//Hide dropdown menu when click outside menu
 	$(document).on('click', function (e) {
