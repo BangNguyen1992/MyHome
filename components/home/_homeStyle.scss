@@ -2,9 +2,13 @@
 	padding-top: 20px;
 	padding-bottom: 20px;
 	display: flex;
+	display:-webkit-flex;
 	flex-direction: row;
+	-webkit-flex-direction: row;
 	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
 	justify-content: center;
+	-webkit-justify-content: center;
 	.border {
 		margin: 2rem;
 		
@@ -13,26 +17,35 @@
 
 .flex-column{
 	display: flex;
+	display:-webkit-flex;
+	-webkit-flex-direction: column;
 	flex-direction: column;
 	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
 	text-align: center;
+//	-webkit-align-items: center;
 }
 
 .flex-item {
-	flex: 1;
+	flex-grow: 1;
+	-webkit-flex-grow: 1;
 	display: flex;
+	display:-webkit-flex;
 	justify-content: center;
+	-webkit-justify-content: center;
 	align-items: center;
+	-webkit-flex-direction: column;
 	flex-direction: column;
 	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
 	background-color: white;
-	margin: 2rem;
+//	margin: 2rem;
 	.cardItem {
 		background-color: transparent;
 		border: 0;
 	}
 	img {
-		max-width: 200px;
+		max-width: 100%;
 	}
 	&.border{
 		border: 1px solid rgba(0, 0, 0, 0.1);
@@ -51,7 +64,9 @@
 	padding-top: 20px;
 	overflow: hidden;
 	display: flex;
+	display:-webkit-flex;
 	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
 }
 
 .panel {
@@ -68,9 +83,12 @@
 	background-position: center;
 	flex: 1;
 	display: flex;
+	display:-webkit-flex;
 	justify-content: center;
+	-webkit-justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	-webkit-flex-direction: column;
 	> * {
 		margin: 0;
 		width: 100%;
@@ -78,7 +96,9 @@
 		//		border: 1px solid red;
 		flex: 1 0 auto;
 		display: flex;
+		display:-webkit-flex;
 		justify-content: center;
+		-webkit-justify-content: center;
 		align-items: center;
 		&:first-child {
 			transform: translateY(-100%)
@@ -92,10 +112,12 @@
 			&:first-child {
 				transform: translateY(0);
 				display: flex;
+				display:-webkit-flex;
 			}
 			&:last-child {
 				transform: translateY(0);
 				display: flex;
+				display:-webkit-flex;
 			}
 		}
 	}
@@ -135,6 +157,7 @@
 @media(max-width: 768px) {
 	.panels{
 		flex-direction: column;
+		-webkit-flex-direction: column;
 	}
 	.panel {
 		> * {
@@ -308,7 +331,9 @@ $triangle: polygon(50% 43%,0% 100%,100% 100%);
 
 .intro-header {
 	display: flex;
+	display:-webkit-flex;
 	flex-direction: column;
+	-webkit-flex-direction: column;
 	padding-top: 0px;
 	padding-bottom: 20px;
 	text-align: center;
