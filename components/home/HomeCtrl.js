@@ -54,7 +54,8 @@
 			else {
 				sliderImages.forEach(sliderImage => {
 					sliderImage.classList.add('active');
-				})
+				});
+				$('#static').removeClass('animated');
 			}
 		}
 

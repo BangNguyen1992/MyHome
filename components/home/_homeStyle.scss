@@ -2,7 +2,8 @@
 	padding-top: 20px;
 	padding-bottom: 20px;
 	display: flex;
-	flex-flow: row wrap;
+	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: center;
 	.border {
 		margin: 2rem;
@@ -12,7 +13,8 @@
 
 .flex-column{
 	display: flex;
-	flex-flow: column wrap;
+	flex-direction: column;
+	flex-wrap: wrap;
 	text-align: center;
 }
 
@@ -22,6 +24,7 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	flex-wrap: wrap;
 	background-color: white;
 	margin: 2rem;
 	.cardItem {
@@ -351,14 +354,14 @@ $triangle: polygon(50% 43%,0% 100%,100% 100%);
 }
 
 .content-section-b {
-	padding-top: 0px;
-	padding-bottom: 0px;
+//	padding-top: 0px;
+//	padding-bottom: 0px;
 	background: linear-gradient($primary);
 	text-align: center;
 }
 
 .content-section-c {
-	padding: 50px 0;
+//	padding: 50px 0;
 //	padding-bottom: 50px;
 	background: $neutral-white;
 	text-align: center;
