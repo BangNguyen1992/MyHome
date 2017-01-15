@@ -25,13 +25,20 @@ body, footer {
 		z-index: 2;
 	}
 }
+@media(min-width:768px) {
+	.particle {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		height: 100vh;
+	}
+}
 
-.particle{
-	position: absolute;
-	top: 0;
-  left: 0;
-  z-index: 1;
-	height: 100vh;
+@media(max-width:767px) {
+	.particle {
+		display: none;
+	}
 }
 
 .bg-white{

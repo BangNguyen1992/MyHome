@@ -11,6 +11,7 @@ var babel = require('gulp-babel');
 var historyApiFallback = require('connect-history-api-fallback');
 var concat = require('gulp-concat');
 var http = require('http-server');
+const autoprefixer = require('gulp-autoprefixer');
 
 
 // Compiles SCSS files from /scss into /css
@@ -18,6 +19,7 @@ gulp.task('sass', function () {
 	return gulp.src(['components/**/*.scss', 'components/*.scss', 'components/**/*.css'])
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
+		.pipe(autoprefixer())
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('dist'))
 		.pipe(browserSync.reload({
