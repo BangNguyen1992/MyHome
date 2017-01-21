@@ -4,15 +4,15 @@
 
 	angular
 		.module('myApp', [
-		'ui.router',
-		'ui.bootstrap',
-		'colorpicker.module',
-		'vintagejs',
-		'ngAria',
-		'ngAnimate',
-		'ngMaterial',
-		'anim-in-out'
-	])
+			'ui.router',
+			'ui.bootstrap',
+			'colorpicker.module',
+			'vintagejs',
+			'ngAria',
+			'ngAnimate',
+			'ngMaterial',
+			'anim-in-out'
+		])
 		.config(config)
 		.run(run);
 
@@ -24,22 +24,22 @@
 		$rootScope.$on('$stateChangeSuccess', function () {
 			document.body.scrollTop = document.documentElement.scrollTop = 0;
 		});
-		
-		$rootScope.$on('$stateChangeStart',
-    function(event, toState, toParams, fromState, fromParams) {
-      if (toState.external) {
-        event.preventDefault();
-        $window.open(toState.url, '_self');
-      }
-    });
+
+		// $rootScope.$on('$stateChangeStart',
+		// 	function (event, toState, toParams, fromState, fromParams) {
+		// 		if (toState.external) {
+		// 			event.preventDefault();
+		// 			$window.open(toState.url, '_self');
+		// 		}
+		// 	});
 	}
 
 	function config($stateProvider, $urlRouterProvider, $locationProvider, $compileProvider) {
 		$urlRouterProvider.otherwise('/home');
-//		$locationProvider.html5Mode({
-//			enabled: true,
-//			requireBase: false
-//		});
+		//		$locationProvider.html5Mode({
+		//			enabled: true,
+		//			requireBase: false
+		//		});
 
 		$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|coui|data):/);
 
@@ -86,23 +86,18 @@
 			})
 			.state('photoBooth', {
 				url: '/photo-booth',
-				views: {
-					'': {
-						templateUrl: 'components/photoBooth/photoBooth.html',
-						controller: 'PhotoBoothCtrl',
-						controllerAs: 'vm'
-					},
-					//							'create@exp': {
-					//								templateUrl: 'components/funWebcam/webcam.html',
-					//								controller: 'CreatePatternCtrl',
-					//								controllerAs: 'vm'
-					//							}
-				}
+				templateUrl: 'components/photoBooth/photoBooth.html',
+				controller: 'PhotoBoothCtrl'
 			})
-		.state('live2d', {
-       url: 'https://asuna-test.herokuapp.com/',
-       external: true
-  })
+			// .state('live2d', {
+			// 	url: 'https://asuna-test.herokuapp.com/',
+			// 	external: true
+			// })
+			.state('speechDetect', {
+				url: '/speech-recognition',
+				templateUrl: 'components/speechDetect/speechDetect.html',
+				controller: 'SpeechDetectCtrl'
+			});
 	}
 
 })();

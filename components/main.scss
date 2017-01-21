@@ -6,6 +6,7 @@
 @import "photoBooth/photoBoothStyle.scss";
 @import "projects/projectsStyle.scss";
 @import "moleGame/moleGameStyle.scss";
+@import "speechDetect/speechDetectStyle.scss";
 
 // Global Components
 body, footer {
@@ -25,6 +26,49 @@ body, footer {
 		z-index: 2;
 	}
 }
+
+@mixin Header-bg ($url) {
+	background: url($url) no-repeat center center;
+	background-size: cover;
+}
+
+.homeHeader {
+	background: linear-gradient($primary), url("../img/body-bg.png") no-repeat center center;
+}
+
+.projectHeader {
+	//	background-image: url('../img/1.jpg');
+	background-position: center;
+	height: 108px;
+	width: 100%;
+}
+
+.imgEditorHeader {
+	@include Header-bg('../img/imgEditor/bg.jpg');
+	background-position: top;
+	background-attachment: scroll;
+}
+
+.gradientHeader {
+	// background-image: url('../img/gradient.jpg') no-repeat center center;
+	@include Header-bg('../img/gradient.jpg');
+}
+
+.photoBoothHeader {
+	@include Header-bg('../img/photoBooth.jpg');
+}
+
+.moleGameHeader {
+	@include Header-bg('../img/mole-game.jpg');
+	background-position: bottom;
+	background-size: contain;
+}
+
+.speechDetectHeader {
+	@include Header-bg('../img/speechRecog.jpg');
+}
+
+
 @media(min-width:768px) {
 	.particle {
 		position: absolute;

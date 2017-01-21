@@ -11,8 +11,6 @@ var babel = require('gulp-babel');
 var historyApiFallback = require('connect-history-api-fallback');
 var concat = require('gulp-concat');
 var http = require('http-server');
-//const autoprefixer = require('autoprefixer');
-//var postcss = require('gulp-postcss');
 
 
 // Compiles SCSS files from /scss into /css
@@ -20,10 +18,10 @@ gulp.task('sass', function () {
 //	var info = autoprefixer().info();
 //console.log(info);
 	return gulp.src(['components/**/*.scss', 'components/*.scss', 'components/**/*.css'])
-		.pipe(sourcemaps.init())
+		// .pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
 //		.pipe(postcss([ autoprefixer() ]))
-		.pipe(sourcemaps.write())
+		// .pipe(sourcemaps.write())
 		.pipe(gulp.dest('dist'))
 		.pipe(browserSync.reload({
 			stream: true
@@ -33,14 +31,14 @@ gulp.task('sass', function () {
 // Minify compiled CSS
 gulp.task('minify-css', ['sass'], function () {
 	return gulp.src('dist/*.css')
-		.pipe(sourcemaps.init())
+		// .pipe(sourcemaps.init())
 		.pipe(cleanCSS({
 			compatibility: 'ie8'
 		}))
 		.pipe(rename({
 			suffix: '.min'
 		}))
-		.pipe(sourcemaps.write())
+		// .pipe(sourcemaps.write())
 		.pipe(gulp.dest('dist'))
 		.pipe(browserSync.reload({
 			stream: true
@@ -51,7 +49,7 @@ gulp.task('minify-css', ['sass'], function () {
 // Minify JS
 gulp.task('minify-js', function () {
 	return gulp.src(['components/**/*.js', 'components/*.js'])
-		.pipe(sourcemaps.init())
+		// .pipe(sourcemaps.init())
 		.pipe(babel({
 			presets: ['es2016']
 		}))
@@ -64,7 +62,7 @@ gulp.task('minify-js', function () {
 		.pipe(rename({
 			suffix: '.min'
 		}))
-		.pipe(sourcemaps.write())
+		// .pipe(sourcemaps.write())
 		.pipe(gulp.dest('dist'))
 		.pipe(browserSync.reload({
 			stream: true
@@ -73,9 +71,9 @@ gulp.task('minify-js', function () {
 
 // Combine js
 gulp.task('scripts', ['minify-js'], function () {
-	return gulp.src('./dist/**/*.js')
+	return gulp.src(['./dist/**/*.js', './dist/*.js', '!dist/js/*.js'])
 		.pipe(concat('main.js'))
-		.pipe(gulp.dest('./dist'));
+		.pipe(gulp.dest('./dist/js'));
 });
 
 
@@ -114,7 +112,7 @@ gulp.task('browserSync', function () {
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'sass', 'minify-js'], function () {
+gulp.task('dev', ['browserSync', 'sass', 'scripts'], function () {
 	gulp.watch(['components/**/*.scss', 'components/*.scss'], ['sass']);
 	gulp.watch('components/**/*.js', ['minify-js']);
 	gulp.watch('components/*.js', ['minify-js']);

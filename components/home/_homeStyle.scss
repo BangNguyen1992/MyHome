@@ -212,33 +212,6 @@
 	}
 }
 
-//.homeHeader {
-//	background-image: url('../img/home-bg.jpg');
-//	background-position: center;
-//}
-//
-.projectHeader {
-//	background-image: url('../img/1.jpg');
-	background-position: center;
-	height: 108px;
-	width: 100%;
-}
-
-.gradientHeader {
-	background-image: url('../img/gradient.jpg');
-	background-position: center;
-}
-
-.photoBoothHeader {
-	background-image: url('../img/photoBooth.jpg');
-	background-position: center;
-}
-
-.moleGameHeader {
-		background-image: url('../img/mole-game.jpg');
-		background-position: bottom;
-	}
-
 .cardView {
 	.container {
 		padding: 6rem;
@@ -338,7 +311,7 @@ $triangle: polygon(50% 43%,0% 100%,100% 100%);
 	padding-bottom: 20px;
 	text-align: center;
 	height: 100vh;
-	background: linear-gradient($primary), url("../img/body-bg.png") no-repeat center center;
+	background: linear-gradient($primary);
 	background-size: cover;
 	box-shadow: inset 0px 0px 0 5000px rgba(0, 0, 0, 0.1);
 }
