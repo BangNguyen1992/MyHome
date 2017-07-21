@@ -7,7 +7,6 @@
 			'ui.router',
 			'ui.bootstrap',
 			'colorpicker.module',
-			'vintagejs',
 			'ngAria',
 			'ngAnimate',
 			'ngMaterial',
