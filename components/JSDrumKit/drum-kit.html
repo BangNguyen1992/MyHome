@@ -51,8 +51,6 @@
 
 	<script>
 		var main = () => {
-
-
 			$('body').on('keydown', (e) => {
 				var sound = $('audio[data-key="' + e.keyCode + '"]');
 				var key = $('div[data-key="' + e.keyCode + '"]');
@@ -71,7 +69,7 @@
 
 		}
 
-		//$(document).ready(main);
+		// $(document).ready(main);
 		$('.drum-kit').ready(main);
 	</script>
 	
