@@ -11,7 +11,21 @@ var babel = require('gulp-babel');
 var historyApiFallback = require('connect-history-api-fallback');
 var concat = require('gulp-concat');
 var http = require('http-server');
+var htmlmin = require('gulp-htmlmin');
 
+
+
+gulp.task('html', function() {
+  return gulp.src(['*.html', 'components/**/*.html'])
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('minify-html', ['html'], function () {
+	return gulp.src(['./dist/**/*.html', './dist/*.html'])
+		.pipe(concat('index.html'))
+		.pipe(gulp.dest('./build'));
+});
 
 // Compiles SCSS files from /scss into /css
 gulp.task('sass', function () {
@@ -39,7 +53,7 @@ gulp.task('minify-css', ['sass'], function () {
 			suffix: '.min'
 		}))
 		// .pipe(sourcemaps.write())
-		.pipe(gulp.dest('dist'))
+		.pipe(gulp.dest('build/css'))
 		.pipe(browserSync.reload({
 			stream: true
 		}))
@@ -71,10 +85,12 @@ gulp.task('minify-js', function () {
 
 // Combine js
 gulp.task('scripts', ['minify-js'], function () {
-	return gulp.src(['./dist/**/*.js', './dist/*.js', '!dist/js/*.js'])
+	return gulp.src(['./dist/**/*.js', './dist/*.js'])
 		.pipe(concat('main.js'))
-		.pipe(gulp.dest('./dist/js'));
+		.pipe(gulp.dest('./build/js'));
 });
+
+
 
 
 // Copy vendor libraries from /node_modules into /vendor
@@ -96,8 +112,10 @@ gulp.task('copy', function () {
 		.pipe(gulp.dest('vendor/font-awesome'))
 })
 
+
+
 // Run everything
-gulp.task('default', ['minify-css', 'minify-js', 'copy']);
+gulp.task('default', ['minify-css', 'scripts','minify-html', 'copy']);
 
 
 // Configure the browserSync task
@@ -112,7 +130,7 @@ gulp.task('browserSync', function () {
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'sass', 'scripts'], function () {
+gulp.task('dev', ['browserSync', 'sass', 'scripts', 'html'], function () {
 	gulp.watch(['components/**/*.scss', 'components/*.scss'], ['sass']);
 	gulp.watch('components/**/*.js', ['minify-js']);
 	gulp.watch('components/*.js', ['minify-js']);
