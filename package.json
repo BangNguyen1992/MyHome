@@ -54,7 +54,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-uglify": "^3.0.0",
-    "http-server": "^0.9.0",
+    "http-server": "^0.10.0",
     "jquery": "^3.2.1",
     "snyk": "^1.36.2",
     "vintagejs": "^2.1.0"
