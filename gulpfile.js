@@ -100,6 +100,33 @@ gulp.task('copy', function () {
 	gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'])
 		.pipe(gulp.dest('vendor/jquery'))
 
+	gulp.src(['node_modules/angular-ui-bootstrap/*'])
+		.pipe(gulp.dest('vendor/angular-ui-bootstrap'))
+
+	gulp.src(['node_modules/angular-bootstrap-colorpicker/*'])
+		.pipe(gulp.dest('vendor/angular-bootstrap-colorpicker'))
+
+	gulp.src(['node_modules/angular-material/*'])
+		.pipe(gulp.dest('vendor/angular-material'))
+
+	gulp.src(['node_modules/animate.css/*'])
+		.pipe(gulp.dest('vendor/animate.css'))
+
+	gulp.src(['node_modules/angular-ui-router-anim-in-out/*'])
+		.pipe(gulp.dest('vendor/angular-ui-router-anim-in-out'))
+
+	gulp.src(['node_modules/angular/*'])
+		.pipe(gulp.dest('vendor/angular'))
+
+	gulp.src(['node_modules/@uirouter/*'])
+		.pipe(gulp.dest('vendor/@uirouter'))
+
+	gulp.src(['node_modules/angular-aria/*'])
+		.pipe(gulp.dest('vendor/angular-aria'))
+
+	gulp.src(['node_modules/angular-animate/*'])
+		.pipe(gulp.dest('vendor/angular-animate'))
+
 	gulp.src([
 		'node_modules/font-awesome/**',
 		'!node_modules/font-awesome/**/*.map',

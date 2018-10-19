@@ -1,0 +1,59 @@
+{
+  "_from": "angular-ui-router-anim-in-out@^1.0.2",
+  "_id": "angular-ui-router-anim-in-out@1.0.2",
+  "_inBundle": false,
+  "_integrity": "sha1-4t2hqHC5fMj5rjjaBrnwInH0l3M=",
+  "_location": "/angular-ui-router-anim-in-out",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "angular-ui-router-anim-in-out@^1.0.2",
+    "name": "angular-ui-router-anim-in-out",
+    "escapedName": "angular-ui-router-anim-in-out",
+    "rawSpec": "^1.0.2",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.2"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular-ui-router-anim-in-out/-/angular-ui-router-anim-in-out-1.0.2.tgz",
+  "_shasum": "e2dda1a870b97cc8f9ae38da06b9f02271f49773",
+  "_spec": "angular-ui-router-anim-in-out@^1.0.2",
+  "_where": "C:\\Users\\Bang Nguyen\\Desktop\\Programing Projects\\BangNguyen-HomePage",
+  "author": {
+    "name": "James Homer"
+  },
+  "bugs": {
+    "url": "https://github.com/homerjam/angular-ui-router-anim-in-out/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "angular": "^1.4.7",
+    "angular-animate": "^1.4.7",
+    "angular-ui-router": "^0.2.15"
+  },
+  "deprecated": false,
+  "description": "An animation directive to use with ngAnimate 1.2+ and ui-router, providing events between transition phases",
+  "devDependencies": {
+    "autoprefixer-core": "^6.0.1",
+    "gulp": "^3.9.0",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-postcss": "^6.0.1",
+    "gulp-sass": "^2.0.4",
+    "run-sequence": "^1.1.4"
+  },
+  "homepage": "https://github.com/homerjam/angular-ui-router-anim-in-out",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "angular-ui-router-anim-in-out",
+  "repository": {
+    "type": "git",
+    "url": "git+https://homerjam@github.com/homerjam/angular-ui-router-anim-in-out.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.2"
+}
