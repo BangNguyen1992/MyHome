@@ -16,7 +16,9 @@ var concat = require('gulp-concat');
 var http = require('http-server');
 var htmlmin = require('gulp-htmlmin');
 
-var debug = require('gulp-debug');
+var del = require('del');
+var $ = require('jquery');
+// var debug = require('gulp-debug');
 var uglify = require('gulp-uglify');
 
 
@@ -27,17 +29,19 @@ gulp.task('html', function () {
 });
 
 // @ts-ignore
-gulp.task('minify-html', ['html'], function () {
-	return gulp.src(['./dist/**/*.html', './dist/*.html'])
-		.pipe(concat('index.html'))
-		.pipe(gulp.dest('./build'));
-});
+// gulp.task('minify-html', ['html'], function () {
+// 	return gulp.src(['./dist/**/*.html', './dist/*.html'])
+// 		.pipe(concat('index.html'))
+// 		.pipe(gulp.dest('./build'));
+// });
 
 // Compiles SCSS files from /scss into /css
 gulp.task('sass', function () {
 	return gulp.src(['components/**/*.scss', 'components/*.scss', 'components/**/*.css'])
 		// .pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
+		.pipe(cleanCSS({ compatibility: 'ie8' }))
+		.pipe(rename({ suffix: '.min' }))
 		// .pipe(sourcemaps.write())
 		.pipe(gulp.dest('dist'))
 		.pipe(browserSync.reload({
@@ -47,21 +51,21 @@ gulp.task('sass', function () {
 
 // Minify compiled CSS
 // @ts-ignore
-gulp.task('minify-css', ['sass'], function () {
-	return gulp.src('dist/*.css')
-		// .pipe(sourcemaps.init())
-		.pipe(cleanCSS({
-			compatibility: 'ie8'
-		}))
-		.pipe(rename({
-			suffix: '.min'
-		}))
-		// .pipe(sourcemaps.write())
-		.pipe(gulp.dest('build/css'))
-		.pipe(browserSync.reload({
-			stream: true
-		}))
-});
+// gulp.task('minify-css', ['sass'], function () {
+// 	return gulp.src('dist/*.css')
+// 		// .pipe(sourcemaps.init())
+// 		.pipe(cleanCSS({
+// 			compatibility: 'ie8'
+// 		}))
+// 		.pipe(rename({
+// 			suffix: '.min'
+// 		}))
+// 		// .pipe(sourcemaps.write())
+// 		.pipe(gulp.dest('build/css'))
+// 		.pipe(browserSync.reload({
+// 			stream: true
+// 		}))
+// });
 
 
 // Minify JS
@@ -87,18 +91,24 @@ gulp.task('minify-js', function (cb) {
 
 // Combine js
 // @ts-ignore
-gulp.task('scripts', ['minify-js'], function () {
-	// @ts-ignore
-	return gulp.src(['./dist/**/*.js', './dist/*.js'])
-		.pipe(concat('main.js'))
-		.pipe(gulp.dest('./build/js'));
-});
+// gulp.task('scripts', ['minify-js'], function () {
+// 	// @ts-ignore
+// 	return gulp.src(['./dist/**/*.js', './dist/*.js'])
+// 		.pipe(concat('main.js'))
+// 		.pipe(gulp.dest('./build/js'));
+// });
 
 
 gulp.task('images', function (done) {
 	return gulp.src('./img/**/*')
 		.pipe(flatten({ includeParents: 1 }))
-		.pipe(gulp.dest('build/img'));
+		.pipe(gulp.dest('dist/img'));
+});
+
+gulp.task('sounds', function (done) {
+	return gulp.src('./sounds/*')
+		.pipe(flatten({ includeParents: 1 }))
+		.pipe(gulp.dest('dist/sounds'));
 });
 
 
@@ -121,11 +131,15 @@ gulp.task('copy', function () {
 		.pipe(gulp.dest('vendor/font-awesome'))
 })
 
+gulp.task('clean', function () {
+	return del.sync('dist');
+});
+
 
 
 // Run everything
 // @ts-ignore
-gulp.task('default', ['sass', 'minify-css', 'minify-js', 'scripts', 'html', 'images', 'copy', 'minify-html']);
+gulp.task('default', ['clean', 'sass', 'minify-js', 'html', 'images', 'sounds', 'copy']);
 
 
 // Configure the browserSync task
@@ -141,7 +155,7 @@ gulp.task('browserSync', function () {
 
 // Dev task with browserSync
 // @ts-ignore
-gulp.task('dev', ['default', 'minify-html', 'browserSync'], function () {
+gulp.task('dev', ['default', 'browserSync'], function () {
 	// @ts-ignore
 	gulp.watch(['components/**/*.scss', 'components/*.scss'], ['sass']);
 	// @ts-ignore
