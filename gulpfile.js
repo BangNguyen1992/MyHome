@@ -14,49 +14,51 @@ var htmlmin = require('gulp-htmlmin');
 
 
 
-gulp.task('html', function() {
-  return gulp.src(['*.html', 'components/**/*.html'])
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('dist'));
+gulp.task('html', function () {
+	return gulp.src(['*.html', 'components/**/*.html'])
+		.pipe(htmlmin({ collapseWhitespace: true }))
+		.pipe(concat('templates.html'))
+		.pipe(gulp.dest('dist'));
 });
 
-gulp.task('minify-html', ['html'], function () {
-	return gulp.src(['./dist/**/*.html', './dist/*.html'])
-		.pipe(concat('index.html'))
-		.pipe(gulp.dest('./build'));
-});
+// gulp.task('minify-html', ['html'], function () {
+// 	return gulp.src(['./dist/**/*.html', './dist/*.html'])
+// 		.pipe(concat('index.html'))
+// 		.pipe(gulp.dest('./build'));
+// });
 
 // Compiles SCSS files from /scss into /css
 gulp.task('sass', function () {
-//	var info = autoprefixer().info();
-//console.log(info);
+	//	var info = autoprefixer().info();
 	return gulp.src(['components/**/*.scss', 'components/*.scss', 'components/**/*.css'])
 		// .pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
-//		.pipe(postcss([ autoprefixer() ]))
 		// .pipe(sourcemaps.write())
+		.pipe(cleanCSS({ compatibility: 'ie8' }))
+		// .pipe(rename({ suffix: '.min' }))
+		.pipe(concat('main.min.css'))
 		.pipe(gulp.dest('dist'))
 		.pipe(browserSync.reload({
 			stream: true
 		}))
 });
 
-// Minify compiled CSS
-gulp.task('minify-css', ['sass'], function () {
-	return gulp.src('dist/*.css')
-		// .pipe(sourcemaps.init())
-		.pipe(cleanCSS({
-			compatibility: 'ie8'
-		}))
-		.pipe(rename({
-			suffix: '.min'
-		}))
-		// .pipe(sourcemaps.write())
-		.pipe(gulp.dest('build/css'))
-		.pipe(browserSync.reload({
-			stream: true
-		}))
-});
+// // Minify compiled CSS
+// gulp.task('minify-css', ['sass'], function () {
+// 	return gulp.src('dist/*.css')
+// 		// .pipe(sourcemaps.init())
+// 		.pipe(cleanCSS({
+// 			compatibility: 'ie8'
+// 		}))
+// 		.pipe(rename({
+// 			suffix: '.min'
+// 		}))
+// 		// .pipe(sourcemaps.write())
+// 		.pipe(gulp.dest('build/css'))
+// 		.pipe(browserSync.reload({
+// 			stream: true
+// 		}))
+// });
 
 
 // Minify JS
@@ -64,30 +66,28 @@ gulp.task('minify-js', function () {
 	return gulp.src(['components/**/*.js', 'components/*.js'])
 		// .pipe(sourcemaps.init())
 		.pipe(babel({
-			presets: ['es2016']
-		}))
-		.pipe(babel({
-			presets: ['es2015']
+			presets: ['@babel/env']
 		}))
 		.pipe(uglify().on('error', function (e) {
 			console.log(e);
 		}))
-		.pipe(rename({
-			suffix: '.min'
-		}))
+		// .pipe(rename({
+		// 	suffix: '.min'
+		// }))
 		// .pipe(sourcemaps.write())
+		.pipe(concat('main.min.js'))
 		.pipe(gulp.dest('dist'))
 		.pipe(browserSync.reload({
 			stream: true
 		}))
 });
 
-// Combine js
-gulp.task('scripts', ['minify-js'], function () {
-	return gulp.src(['./dist/**/*.js', './dist/*.js'])
-		.pipe(concat('main.js'))
-		.pipe(gulp.dest('./build/js'));
-});
+// // Combine js
+// gulp.task('scripts', ['minify-js'], function () {
+// 	return gulp.src(['./dist/**/*.js', './dist/*.js'])
+// 		.pipe(concat('main.min.js'))
+// 		.pipe(gulp.dest('./build/js'));
+// });
 
 
 
@@ -101,20 +101,20 @@ gulp.task('copy', function () {
 		.pipe(gulp.dest('vendor/jquery'))
 
 	gulp.src([
-            'node_modules/font-awesome/**',
-            '!node_modules/font-awesome/**/*.map',
-            '!node_modules/font-awesome/.npmignore',
-            '!node_modules/font-awesome/*.txt',
-            '!node_modules/font-awesome/*.md',
-            '!node_modules/font-awesome/*.json'
-        ])
+		'node_modules/font-awesome/**',
+		'!node_modules/font-awesome/**/*.map',
+		'!node_modules/font-awesome/.npmignore',
+		'!node_modules/font-awesome/*.txt',
+		'!node_modules/font-awesome/*.md',
+		'!node_modules/font-awesome/*.json'
+	])
 		.pipe(gulp.dest('vendor/font-awesome'))
 })
 
 
 
 // Run everything
-gulp.task('default', ['minify-css', 'scripts','minify-html', 'copy']);
+gulp.task('default', ['sass', 'minify-js', 'html', 'copy']);
 
 
 // Configure the browserSync task
@@ -129,7 +129,7 @@ gulp.task('browserSync', function () {
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'sass', 'scripts', 'html'], function () {
+gulp.task('dev', ['browserSync', 'sass', 'minify-js', 'html'], function () {
 	gulp.watch(['components/**/*.scss', 'components/*.scss'], ['sass']);
 	gulp.watch('components/**/*.js', ['minify-js']);
 	gulp.watch('components/*.js', ['minify-js']);

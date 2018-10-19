@@ -403,6 +403,10 @@ $triangle: polygon(50% 43%,0% 100%,100% 100%);
 	margin: auto;
 	color: white;
 	border: 3px solid white;
+	&:hover {
+		transform: scale(1.1);
+		transition: transform 0.5s;
+	}
 	a{
 		color: white;
 		font-weight: 400;

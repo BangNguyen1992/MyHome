@@ -7,40 +7,42 @@
 
 	HomeCtrl.$inject = ['$scope'];
 
-	function HomeCtrl($scope) {
-
+	function HomeCtrl() {
 		//Loading on scroll
-		var debounce = function (func, wait = 20, immediate = true) {
-			var timeout;
+		const debounce = function (func, wait = 20, immediate = true) {
+			let timeout;
 			return function () {
-				var context = this,
+				const context = this,
 					args = arguments;
-				var later = function () {
+				const later = function () {
 					timeout = null;
 					if (!immediate) func.apply(context, args);
 				};
-				var callNow = immediate && !timeout;
+				const callNow = immediate && !timeout;
 				clearTimeout(timeout);
 				timeout = setTimeout(later, wait);
 				if (callNow) func.apply(context, args);
 			};
 		}
 
-		var sliderImages = document.querySelectorAll('.slide-in');
-		var width = document.documentElement.clientWidth;
+		function offset(el) {
+			var rect = el.getBoundingClientRect(),
+				scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+				scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+			return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+		}
+
+		const sliderImages = document.querySelectorAll('.slide-in');
+		const width = document.documentElement.clientWidth;
 
 		function checkSlide(e) {
 			sliderImages.forEach(sliderImage => {
-				var slideInAt = (window.scrollY + window.innerHeight) - sliderImage.clientHeight;
-				//					console.log(slideInAt/4, sliderImage.offsetHeight);
-				// bottom of the image
-				var imageBottom = sliderImage.offsetHeight + sliderImage.clientHeight;
-				var isHalfShown = slideInAt / 6 > sliderImage.offsetHeight;
+				// get bottom of the view
+				const slideInAt = window.scrollY + window.innerHeight;
+				// get image offset
+				const imageOffset = offset(sliderImage);
 
-				var isNotScrolledPast = window.scrollY / 6 < imageBottom;
-				//					console.log(window.scrollY / 2, imageBottom)
-
-				if (isHalfShown && isNotScrolledPast) {
+				if (slideInAt >= imageOffset.top) {
 					sliderImage.classList.add('active');
 				} else {
 					sliderImage.classList.remove('active');
@@ -49,9 +51,9 @@
 		}
 
 		function init() {
-			if (width > 1024)
-				window.addEventListener('scroll', debounce(checkSlide));
-			else {
+			if (width > 1024) {
+				window.addEventListener('scroll', debounce(checkSlide, 20));
+			} else {
 				sliderImages.forEach(sliderImage => {
 					sliderImage.classList.add('active');
 				});
@@ -62,10 +64,10 @@
 		init();
 
 		//Animation on click
-		var panels = document.querySelectorAll('.panel');
+		const panels = document.querySelectorAll('.panel');
 
-		var toggleOpen = function () {
-			console.log(this);
+		const toggleOpen = function () {
+			// console.log(this);
 			this.classList.toggle('open');
 			this.classList.toggle('open-active');
 		}
@@ -73,12 +75,12 @@
 		panels.forEach(panel => panel.addEventListener('click', toggleOpen));
 
 		$('a.page-scroll').on('click', function (event) {
-		var $anchor = $(this);
-		$('html, body').stop().animate({
-			scrollTop: ($($anchor.attr('data-href')).offset().top - 50)
-		}, 550, 'easeInOutExpo');
-		event.preventDefault();
-	});
+			const $anchor = $(this);
+			$('html, body').stop().animate({
+				scrollTop: ($($anchor.attr('data-href')).offset().top - 50)
+			}, 550, 'easeInOutExpo');
+			event.preventDefault();
+		});
 
 	}
 })();
