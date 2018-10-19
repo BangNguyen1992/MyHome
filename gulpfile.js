@@ -67,7 +67,7 @@ gulp.task('minify-css', ['sass'], function () {
 // Minify JS
 gulp.task('minify-js', function (cb) {
 	return gulp.src(['./components/**/*.js', './components/*.js'])
-		.pipe(debug({ title: 'minify-js:' }))
+		// .pipe(debug({ title: 'minify-js:' }))
 		.pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(babel({
 			presets: ['@babel/env']
@@ -125,7 +125,7 @@ gulp.task('copy', function () {
 
 // Run everything
 // @ts-ignore
-gulp.task('default', ['sass', 'minify-css', 'minify-js', 'scripts', 'html', 'images', 'copy']);
+gulp.task('default', ['sass', 'minify-css', 'minify-js', 'scripts', 'html', 'images', 'copy', 'minify-html']);
 
 
 // Configure the browserSync task
@@ -141,7 +141,7 @@ gulp.task('browserSync', function () {
 
 // Dev task with browserSync
 // @ts-ignore
-gulp.task('dev', ['default', 'browserSync'], function () {
+gulp.task('dev', ['default', 'minify-html', 'browserSync'], function () {
 	// @ts-ignore
 	gulp.watch(['components/**/*.scss', 'components/*.scss'], ['sass']);
 	// @ts-ignore
