@@ -37,8 +37,11 @@
 					audio: false
 				})
 				.then(localMediaStream => {
-					//					console.log(localMediaStream)
-					video.src = window.URL.createObjectURL(localMediaStream);
+					try {
+						video.srcObject = localMediaStream;
+					} catch (error) {
+						video.src = window.URL.createObjectURL(localMediaStream);
+					}
 
 					video.play();
 				})
@@ -62,7 +65,7 @@
 				ctx.drawImage(video, 0, 0, width, height);
 				//Take the pixels out
 				$scope.pixels = ctx.getImageData(0, 0, width, height);
-
+				// console.log('object ctx', ctx);
 				//colorEffect
 				$scope.pixels = colorEffect($scope.pixels);
 				
