@@ -47,45 +47,45 @@
 		$stateProvider
 			.state('nav', {
 				//        abstract:true,
-				templateUrl: '../index.html',
+				templateUrl: './index.html',
 				controller: 'NavCtrl'
 			})
 			.state('home', {
 				url: '/home',
-				templateUrl: 'components/home/home.html',
+				templateUrl: './home/home.html',
 				controller: 'HomeCtrl',
 				controllerAs: 'vm'
 			})
 			.state('projects', {
 				url: '/projects',
-				templateUrl: 'components/projects/projects.html',
+				templateUrl: './projects/projects.html',
 				controller: 'ProjectsCtrl',
 				controllerAs: 'vm'
 			})
 			.state('drumKit', {
 				url: '/drum-kit',
-				templateUrl: 'components/JSDrumKit/drum-kit.html',
+				templateUrl: './JSDrumKit/drum-kit.html',
 				controller: 'DrumKitCtrl',
 				controllerAs: 'vm'
 			})
 			.state('ImgEditor', {
 				url: '/img-editor',
-				templateUrl: 'components/ImgEditor/imgEditor.html',
+				templateUrl: './ImgEditor/imgEditor.html',
 				controller: 'ImgEditorCtrl'
 			})
 			.state('ImgGradient', {
 				url: '/gradient-effect',
-				templateUrl: 'components/ImgGradient/imgGradient.html',
+				templateUrl: './ImgGradient/imgGradient.html',
 				controller: 'GradientCtrl'
 			})
 			.state('moleGame', {
 				url: '/mole-game',
-				templateUrl: 'components/moleGame/moleGame.html',
+				templateUrl: './moleGame/moleGame.html',
 				controller: 'MoleGameCtrl'
 			})
 			.state('photoBooth', {
 				url: '/photo-booth',
-				templateUrl: 'components/photoBooth/photoBooth.html',
+				templateUrl: './photoBooth/photoBooth.html',
 				controller: 'PhotoBoothCtrl'
 			})
 			// .state('live2d', {
@@ -94,7 +94,7 @@
 			// })
 			.state('speechDetect', {
 				url: '/speech-recognition',
-				templateUrl: 'components/speechDetect/speechDetect.html',
+				templateUrl: './speechDetect/speechDetect.html',
 				controller: 'SpeechDetectCtrl'
 			});
 	}
