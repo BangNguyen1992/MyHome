@@ -771,6 +771,8 @@ footer {
 // Social Buttons
 ul.social-buttons {
 	margin-bottom: 0;
+	display: flex;
+  justify-content: center;
 	li {
 		a {
 			display: block;
