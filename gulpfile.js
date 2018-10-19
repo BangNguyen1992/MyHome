@@ -2,24 +2,31 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
+var flatten = require('gulp-flatten');
+
+// @ts-ignore
 var header = require('gulp-header');
+// @ts-ignore
 var cleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
-var uglify = require('gulp-uglify');
 var babel = require('gulp-babel');
 var historyApiFallback = require('connect-history-api-fallback');
 var concat = require('gulp-concat');
+// @ts-ignore
 var http = require('http-server');
 var htmlmin = require('gulp-htmlmin');
 
+var debug = require('gulp-debug');
+var uglify = require('gulp-uglify');
 
 
-gulp.task('html', function() {
-  return gulp.src(['*.html', 'components/**/*.html'])
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('dist'));
+gulp.task('html', function () {
+	return gulp.src(['*.html', 'components/**/*.html'])
+		.pipe(htmlmin({ collapseWhitespace: true }))
+		.pipe(gulp.dest('dist'));
 });
 
+// @ts-ignore
 gulp.task('minify-html', ['html'], function () {
 	return gulp.src(['./dist/**/*.html', './dist/*.html'])
 		.pipe(concat('index.html'))
@@ -28,12 +35,9 @@ gulp.task('minify-html', ['html'], function () {
 
 // Compiles SCSS files from /scss into /css
 gulp.task('sass', function () {
-//	var info = autoprefixer().info();
-//console.log(info);
 	return gulp.src(['components/**/*.scss', 'components/*.scss', 'components/**/*.css'])
 		// .pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
-//		.pipe(postcss([ autoprefixer() ]))
 		// .pipe(sourcemaps.write())
 		.pipe(gulp.dest('dist'))
 		.pipe(browserSync.reload({
@@ -42,6 +46,7 @@ gulp.task('sass', function () {
 });
 
 // Minify compiled CSS
+// @ts-ignore
 gulp.task('minify-css', ['sass'], function () {
 	return gulp.src('dist/*.css')
 		// .pipe(sourcemaps.init())
@@ -60,14 +65,12 @@ gulp.task('minify-css', ['sass'], function () {
 
 
 // Minify JS
-gulp.task('minify-js', function () {
-	return gulp.src(['components/**/*.js', 'components/*.js'])
-		// .pipe(sourcemaps.init())
+gulp.task('minify-js', function (cb) {
+	return gulp.src(['./components/**/*.js', './components/*.js'])
+		.pipe(debug({ title: 'minify-js:' }))
+		.pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(babel({
-			presets: ['es2016']
-		}))
-		.pipe(babel({
-			presets: ['es2015']
+			presets: ['@babel/env']
 		}))
 		.pipe(uglify().on('error', function (e) {
 			console.log(e);
@@ -75,7 +78,7 @@ gulp.task('minify-js', function () {
 		.pipe(rename({
 			suffix: '.min'
 		}))
-		// .pipe(sourcemaps.write())
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('dist'))
 		.pipe(browserSync.reload({
 			stream: true
@@ -83,13 +86,20 @@ gulp.task('minify-js', function () {
 });
 
 // Combine js
+// @ts-ignore
 gulp.task('scripts', ['minify-js'], function () {
+	// @ts-ignore
 	return gulp.src(['./dist/**/*.js', './dist/*.js'])
 		.pipe(concat('main.js'))
 		.pipe(gulp.dest('./build/js'));
 });
 
 
+gulp.task('images', function (done) {
+	return gulp.src('./img/**/*')
+		.pipe(flatten({ includeParents: 1 }))
+		.pipe(gulp.dest('build/img'));
+});
 
 
 // Copy vendor libraries from /node_modules into /vendor
@@ -101,20 +111,21 @@ gulp.task('copy', function () {
 		.pipe(gulp.dest('vendor/jquery'))
 
 	gulp.src([
-            'node_modules/font-awesome/**',
-            '!node_modules/font-awesome/**/*.map',
-            '!node_modules/font-awesome/.npmignore',
-            '!node_modules/font-awesome/*.txt',
-            '!node_modules/font-awesome/*.md',
-            '!node_modules/font-awesome/*.json'
-        ])
+		'node_modules/font-awesome/**',
+		'!node_modules/font-awesome/**/*.map',
+		'!node_modules/font-awesome/.npmignore',
+		'!node_modules/font-awesome/*.txt',
+		'!node_modules/font-awesome/*.md',
+		'!node_modules/font-awesome/*.json'
+	])
 		.pipe(gulp.dest('vendor/font-awesome'))
 })
 
 
 
 // Run everything
-gulp.task('default', ['minify-css', 'scripts','minify-html', 'copy']);
+// @ts-ignore
+gulp.task('default', ['sass', 'minify-css', 'minify-js', 'scripts', 'html', 'images', 'copy']);
 
 
 // Configure the browserSync task
@@ -129,9 +140,13 @@ gulp.task('browserSync', function () {
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'sass', 'scripts', 'html'], function () {
+// @ts-ignore
+gulp.task('dev', ['default', 'browserSync'], function () {
+	// @ts-ignore
 	gulp.watch(['components/**/*.scss', 'components/*.scss'], ['sass']);
+	// @ts-ignore
 	gulp.watch('components/**/*.js', ['minify-js']);
+	// @ts-ignore
 	gulp.watch('components/*.js', ['minify-js']);
 	// Reloads the browser whenever HTML or JS files change
 	gulp.watch(['*.html', 'components/**/*.html'], browserSync.reload);
