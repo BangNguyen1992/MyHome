@@ -6,7 +6,7 @@
   "author": "Bang Nguyen",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server ./",
+    "start": "./node_modules/.bin/gulp && http-server",
     "dev": "./node_modules/.bin/gulp dev",
     "build": "./node_modules/.bin/gulp",
     "snyk-protect": "snyk protect",
