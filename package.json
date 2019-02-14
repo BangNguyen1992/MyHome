@@ -57,7 +57,7 @@
     "angular-ui-router-anim-in-out": "^1.0.2",
     "angular-vidbg": "0.0.12",
     "animate.css": "^3.7.0",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.0",
     "connect-history-api-fallback": "^1.5.0",
     "font-awesome": "^4.7.0",
     "http-server": "^0.11.1",
